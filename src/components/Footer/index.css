@@ -1,0 +1,28 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: #121212; 
+    color: #fff; 
+    border-top: 1px solid #d4b059;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .social-icons a {
+    color: #d4b059;
+    text-decoration: none;
+  }
+  
+  .copyright {
+    font-size: 0.8rem;
+  }
+
+  .footer-logo img {
+    width: 10rem;
+  }

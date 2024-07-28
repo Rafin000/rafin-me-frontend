@@ -1,0 +1,38 @@
+.experience-item > .year {
+    color: rgb(95, 95, 95);
+    font-weight: 400;
+    font-size: 95%;
+}
+
+.experience-item-year {
+    display: flex;
+    gap: 1rem;
+    padding-block: 1rem;
+}
+
+.experience-item-left {
+    border-left: 2px solid #d4b059;
+}
+
+.experience-item-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: .9rem;
+    gap: .8rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.experience-dot {
+    margin-top: .4rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: #d4b059;
+    border-radius: 50%;
+    position: absolute;
+    right: 57.2rem; 
+}
+
+.company {
+    color: rgb(177, 177, 230);
+}

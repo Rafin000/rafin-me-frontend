@@ -1,0 +1,22 @@
+@keyframes typing {
+  from { width: 0; }
+  to { width: 16ch; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  font-family: Arial, sans-serif; 
+  margin: 0;
+  padding-left: 15%;
+  padding-right: 15% !important;
+  }
+  
+
+

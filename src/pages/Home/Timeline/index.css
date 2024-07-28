@@ -1,0 +1,39 @@
+.timeline {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.timeline h1 {
+    margin: 0;
+    color: #d4b059;
+    font-weight: bolder;
+    font-size: 2.5rem;
+    margin-bottom: 6rem;
+}
+
+.timeline-body {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+}
+
+.education {
+    display: flex;
+    gap: 1rem;
+}
+
+.education-left {
+    border-left: 2px solid #d4b059;
+}
+
+.experience {
+    display: flex;
+    gap: 1rem;
+}
+
+.experience-left {
+    border-left: 2px solid #d4b059;
+}

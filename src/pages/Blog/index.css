@@ -1,0 +1,100 @@
+.blog-page {
+    font-family: Arial, sans-serif; 
+    margin: 0;
+    padding-left: 28%;
+    padding-right: 28% !important;
+  }
+  
+  .blog-header {
+    padding: .5rem;
+    padding-left: 0;
+    border-bottom: 1px solid #d4b059;
+  }
+  
+  .blog-header {
+    margin: 0;
+    color: #d4b059;
+    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  .blog-body {
+    padding: 1rem;
+    padding-left: 0;
+    margin-top: 2rem;
+  }
+  
+  .blog-post {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    gap: 1rem !important;
+    margin-bottom: 1rem;
+  }
+
+  .blog-post a {
+    display: flex;
+    flex-wrap: wrap;
+    color: #d4b059;
+    font-weight: 600;
+    font-size: larger;
+    font-family: Georgia, Times, 'Times New Roman', serif;
+  }
+
+  .blog-post a:hover {
+    text-decoration: underline;
+    color: #f5d07b;
+  }
+
+
+  .blog-post-date {
+    padding: 0;
+    margin: 0;
+    font-style: italic;
+    font-weight: 500;
+    font-size: larger;
+    white-space: nowrap;
+  }
+  
+  .blog-tags {
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 0.5rem;
+    margin-top: 3rem;
+  }
+
+  .blog-tags a {
+    color: #f5d07b;
+  }
+
+  .blog-tags a:hover {
+    text-decoration: underline;
+    color: #ffe6ac;
+  }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.pagination button {
+    background-color: #d4b059;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.pagination span {
+    font-size: 1rem;
+}

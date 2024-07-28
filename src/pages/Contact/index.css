@@ -1,0 +1,21 @@
+.contact-page {
+    width: 100vw;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.testimonial {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 8rem;
+    padding-bottom: 6rem;
+    }
+
+.contact-page h1 {
+    margin: 0;
+    color: #d4b059;
+    font-weight: bolder;
+    font-size: 2.5rem;
+    }

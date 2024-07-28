@@ -1,0 +1,31 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 10%;
+    background-color: #06080b;
+  }
+  
+  .nav-list {
+    font-size: larger;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    /* padding-left: 28%; */
+    gap: 2rem;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: #d4b059;
+  }
+  
+  .nav-link:hover {
+    color: #d4b059;
+    text-decoration: underline;
+  }
+
+.navbar-logo img{
+  /* padding-left: 6rem; */
+  width: 15%;
+}

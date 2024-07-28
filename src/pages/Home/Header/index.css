@@ -1,0 +1,47 @@
+.home-header {
+    padding: 1rem;
+    /* padding-left: 0; */
+    /* border-bottom: 1px solid #d4b059; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20rem;
+  }
+  
+.home-header h1 {
+    margin: 0;
+    color: #d4b059;
+    font-weight: bolder;
+    font-size: 2.5rem;
+  }
+
+.download-button {
+    margin-top: 1rem;
+    border: 1px solid #d4b059;
+  }
+
+.download-button:hover {
+    border: 2px solid #ccc;
+    background-color: #d4b059;
+    color: #06080b;
+    font-weight: 600;
+  }
+
+.home-header-designation {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: large;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  width: 16ch;
+  animation: 
+      typing 1s steps(20, end) 0s 1 normal both,
+      blink .75s step-end infinite,
+      typing-loop 3s steps(16, end) infinite;
+}
+
+.home-header-right-image{
+  width: 70%;
+  border-radius: 50%;
+  border: 4px solid #d4b059;
+}
