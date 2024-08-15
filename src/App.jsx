@@ -4,7 +4,6 @@ import Layout from './components/Layout';
 import Blog from './pages/Blog';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
-import Admin from './pages/Admin';
 
 function App() {
   return (
@@ -13,7 +12,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/admin" element={<Admin />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </Layout>

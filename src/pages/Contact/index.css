@@ -76,6 +76,7 @@
     padding-inline: .875rem;
     font-weight: 500;
     font-size: .875rem;
+    resize: vertical;
 }
 
 .send-button {
