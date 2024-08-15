@@ -1,24 +1,18 @@
 import { useState } from 'react';
-import { EditorState, convertToRaw } from 'draft-js';
-import draftToHtml from 'draftjs-to-html';
 import './index.css';
-import RichTextEditor from '../../components/MyEditor';
+import Markdown from '../../components/Markdown';
 
 const Admin = () => {
-  const [editorState, setEditorState] = useState(EditorState.createEmpty());
   const [title, setTitle] = useState('');
-
-  const handleEditorChange = (state) => {
-    setEditorState(state);
-  };
+  const [shortDescription, setShortDescription] = useState('');
+  const [readingTime, setReadingTime] = useState('');
+  const [author, setAuthor] = useState('');
+  const [thumbnail, setThumbnail] = useState('');
+  const [tags, setTags] = useState('');
 
   const handleSubmit = async () => {
-    const rawContentState = convertToRaw(editorState.getCurrentContent());
-    const htmlContent = draftToHtml(rawContentState);
-
     const postData = {
       title: title,
-      content: htmlContent,
       author: 'Admin'
     };
 
@@ -33,9 +27,12 @@ const Admin = () => {
 
       if (response.ok) {
         console.log('Successfully created blog post');
-        // Reset title and editorState after successful submission
         setTitle('');
-        setEditorState(EditorState.createEmpty()); // Clear editor content
+        setShortDescription('');
+        setReadingTime('');
+        setAuthor('');
+        setThumbnail('');
+        setTags('');
       } else {
         console.error('Failed to create blog post');
       }
@@ -46,17 +43,76 @@ const Admin = () => {
 
   return (
     <div className="admin-page">
-      <h2>Create a New Blog Post</h2>
-      <input
-        type="text"
-        placeholder="Title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      <div className='admin-editor'>
-        <RichTextEditor editorState={editorState} onChange={handleEditorChange} />
+      <h2>Create Blog</h2>
+      
+      <label>
+        Title:
+        <input
+          type="text"
+          placeholder="Content title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+      </label>
+      
+      <label>
+        Summary:
+        <input
+          type="text"
+          placeholder="Describe short summary"
+          value={shortDescription}
+          onChange={(e) => setShortDescription(e.target.value)}
+        />
+      </label>
+      
+      <label>
+        Reading Time:
+        <input
+          type="text"
+          placeholder="How much time will it take to finish reading? (In minutes)"
+          value={readingTime}
+          onChange={(e) => setReadingTime(e.target.value)}
+        />
+      </label>
+      
+      <label>
+        Author:
+        <input
+          type="text"
+          placeholder="Author name"
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
+        />
+      </label>
+      
+      <label>
+        Content:
+        <Markdown />
+      </label>
+      
+      <label>
+        Blog Thumbnail:
+        <input
+          type="text"
+          placeholder="Thumbnail URL"
+          value={thumbnail}
+          onChange={(e) => setThumbnail(e.target.value)}
+        />
+      </label>
+      
+      <label>
+        Tags:
+        <input
+          type="text"
+          placeholder="Relevent tags"
+          value={tags}
+          onChange={(e) => setTags(e.target.value)}
+        />
+      </label>
+      
+      <div>
+        <button onClick={handleSubmit}>Submit</button>
       </div>
-      <button onClick={handleSubmit}>Submit</button>
     </div>
   );
 };
