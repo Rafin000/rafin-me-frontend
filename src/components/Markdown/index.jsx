@@ -15,7 +15,7 @@ const Markdown = () => {
           className="markdown-editor"
           value={markdown}
           height="400px"
-          width='520px'
+          width='500px'
           autoFocus
           onChange={(value, viewUpdate) => setMarkdown(value)}
         />

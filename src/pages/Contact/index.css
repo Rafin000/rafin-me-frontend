@@ -55,13 +55,15 @@
 .form-group input{
     width: 50%;
     background-color: #f9f9f9;
-    border-radius: .3rem;
+    border-radius: .2rem;
     border: none;
     color: #121212;
     padding: .2rem;
     padding-inline: .875rem;
     font-weight: 500;
     font-size: .875rem;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: justify;
 }
 
 .form-group textarea{

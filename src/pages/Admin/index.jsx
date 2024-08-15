@@ -87,9 +87,8 @@ const Admin = () => {
       
       <label>
         Content:
-        <Markdown />
       </label>
-      
+      <Markdown />
       <label>
         Blog Thumbnail:
         <input
