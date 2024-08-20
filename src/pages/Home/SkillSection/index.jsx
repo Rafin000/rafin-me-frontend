@@ -1,53 +1,50 @@
-// SkillsSection.js
-import './index.css'
-
+import { useEffect, useState } from 'react';
+import './index.css';
 import Skill from './Skill';
 
 const SkillsSection = () => {
+  const [skills, setSkills] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:5000/api/v1/users/312b9d52-d0a2-476c-81be-88566b7b600b')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        setSkills(data.data.skills || []); 
+        setLoading(false);
+      })
+      .catch(error => {
+        setError(error);
+        setLoading(false);
+      });
+  }, []); 
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
   return (
     <div className='home-skills'>
       <h1>Top Skills</h1>
       <div className='skills'>
-        <Skill
-          imageSrc="/src/assets/python.png"
-          altText="Python Image"
-          skillName="Python"
-        />
-        <Skill
-          imageSrc="/src/assets/flask.png"
-          altText="Flask Icon"
-          skillName="Flask"
-        />
-        <Skill
-          imageSrc="/src/assets/js.png"
-          altText="Javascript Icon"
-          skillName="JavaScript"
-        />
-        <Skill
-          imageSrc="/src/assets/nodejs.png"
-          altText="NodeJs Icon"
-          skillName="Node.js"
-        />
-        <Skill
-          imageSrc="/src/assets/kubernetes.png"
-          altText="Kubernetes Icon"
-          skillName="Kubernetes"
-        />
-        <Skill
-          imageSrc="/src/assets/react.png"
-          altText="React Icon"
-          skillName="React"
-        />
-        <Skill
-          imageSrc="/src/assets/docker.png"
-          altText="Docker Icon"
-          skillName="Docker"
-        />
-        <Skill
-          imageSrc="/src/assets/c++.png"
-          altText="C++ Icon"
-          skillName="C++"
-        />
+        {skills.map((skill, index) => (
+          <Skill
+            key={index}
+            imageSrc={skill.icon_link}
+            altText={`${skill} Icon`}
+            skillName={skill.skill}
+          />
+        ))}
       </div>
     </div>
   );

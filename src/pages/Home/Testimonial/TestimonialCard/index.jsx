@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import './index.css';
 
-const TestimonialCard = ({ quote, author, title, image }) => (
+const TestimonialCard = ({ quote, author, title, company, image }) => (
   <div className="testimonial-card">
     <i className="fa-solid fa-quote-left"></i>
     <div className="author">
@@ -13,6 +13,7 @@ const TestimonialCard = ({ quote, author, title, image }) => (
         <div className="author-details">
           <h3>{author}</h3>
           <div>{title}</div>
+          <div>{company}</div>
         </div>
       </div>
     </div>

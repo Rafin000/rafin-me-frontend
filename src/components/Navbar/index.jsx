@@ -1,11 +1,12 @@
 import './index.css'; 
+import { URLs } from '../../const';
 
 function Navbar() {
   return (
     <nav className="navbar">
       <div className='navbar-logo'>
         <a href="/">
-          <img src="/src/assets/logo.png" alt="Logo" />
+          <img src={URLs.logo} alt="Logo" />
         </a>
       </div>
       <ul className="nav-list">
