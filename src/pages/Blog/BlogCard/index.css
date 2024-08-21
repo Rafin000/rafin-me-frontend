@@ -12,21 +12,23 @@
 
   .blog-post-content{
     margin: 0;
+    width: 100%;
   }
 
-  .blog-post a {
+  .blog-post .blog-post-title {
     display: flex;
     flex-wrap: wrap;
     color: #d4b059;
     font-weight: 600;
     font-size: larger;
     font-family: Georgia, Times, 'Times New Roman', serif;
-  }
+    text-decoration: none; 
+}
 
-  .blog-post a:hover {
+.blog-post .blog-post-title:hover {
     text-decoration: underline;
     color: #f5d07b;
-  }
+}
 
 
   .blog-post-date {

@@ -2,7 +2,7 @@
 import './index.css';
 import { useState } from 'react';
 import MarkdownEditor from '@uiw/react-markdown-editor';
-import MarkdownPreview from '@uiw/react-markdown-preview';
+// import MarkdownPreview from '@uiw/react-markdown-preview';
 
 const mdStr ='# This is a H1  \n## This is a H2  \n###### This is a H6';
 
@@ -19,7 +19,7 @@ const Markdown = () => {
           autoFocus
           onChange={(value, viewUpdate) => setMarkdown(value)}
         />
-        <MarkdownPreview
+        {/* <MarkdownPreview
           className="markdown-preview"
           source={markdown}
           rehypeRewrite={(node, index, parent) => {
@@ -27,7 +27,7 @@ const Markdown = () => {
               parent.children = parent.children.slice(1);
             }
           }}
-        />
+        /> */}
       </div>
   );
 };
