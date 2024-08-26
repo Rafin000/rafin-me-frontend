@@ -1,4 +1,4 @@
-.experience-item > .year {
+.experience-item .year {
     color: rgb(95, 95, 95);
     font-weight: 400;
     font-size: 95%;
@@ -29,10 +29,14 @@
     height: 0.5rem;
     background-color: #d4b059;
     border-radius: 50%;
-    position: absolute;
-    right: 57.2rem; 
 }
 
 .company {
     color: rgb(177, 177, 230);
+}
+
+.dot-year{
+    display: flex;
+    gap: 1rem;
+    transform: translateX(-1.3rem);
 }

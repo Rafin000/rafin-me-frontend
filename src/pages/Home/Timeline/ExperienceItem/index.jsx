@@ -5,8 +5,10 @@ const ExperienceItem = ({year, designation, company}) => {
 
     return (
         <div className="experience-item">
-            <div className='experience-dot'></div>
-            <div className='year'>{year}</div>
+            <div className='dot-year'>
+                <div className='experience-dot'></div>
+                <div className='year'>{year}</div>
+            </div>
             <div className='experience-item-year'>
                 <div className='experience-item-left'></div> 
                 <div className='experience-item-right'>

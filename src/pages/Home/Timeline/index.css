@@ -37,3 +37,19 @@
 .experience-left {
     border-left: 2px solid #d4b059;
 }
+
+
+/* Media queries for responsiveness */
+@media (max-width: 1024px) {
+    .timeline-body {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .timeline-body {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}

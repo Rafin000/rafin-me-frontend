@@ -5,8 +5,10 @@ const EducationItem = ({year, degree, university, cgpa}) => {
 
     return (
     <div className="education-item">
-        <div className='education-dot'></div>
-        <div className='year'>{year}</div>
+        <div className='dot-year'>
+            <div className='education-dot'></div>
+            <div className='year'>{year}</div>
+        </div>
         <div className='education-item-year'>
             <div className='education-item-left'></div>    
             <div className='education-item-right'>

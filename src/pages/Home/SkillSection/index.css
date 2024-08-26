@@ -1,23 +1,42 @@
+/* index.css */
+
 .home-skills {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    gap: 8rem;
-  }
-  
-  .home-skills h1 {
-    margin: 0;
-    color: #d4b059;
-    font-weight: bolder;
-    font-size: 2.5rem;
-  }
-  
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 8rem;
+}
+
+.home-skills h1 {
+  margin: 0;
+  color: #d4b059;
+  font-weight: bolder;
+  font-size: 2.5rem;
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1350px) {
   .skills {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr); /* 2 skills per row on medium screens */
   }
-  
-  
+}
+
+@media (max-width: 1024px) {
+  .skills {
+    grid-template-columns: repeat(2, 1fr); /* 2 skills per row on medium screens */
+  }
+}
+
+@media (max-width: 640px) {
+  .skills {
+    grid-template-columns: 1fr; /* 1 skill per row on small screens */
+  }
+}

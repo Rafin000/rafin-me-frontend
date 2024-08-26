@@ -1,3 +1,6 @@
+/* index.css */
+
+/* Keyframes for typing and blinking effects */
 @keyframes typing {
   from { width: 0; }
   to { width: 16ch; }
@@ -7,16 +10,35 @@
   50% { border-color: transparent; }
 }
 
-
+/* Styles for the home page */
 .home-page {
   display: flex;
   flex-direction: column;
   gap: 4rem;
-  font-family: Arial, sans-serif; 
+  font-family: Arial, sans-serif;
   margin: 0;
-  padding-left: 15%;
+  padding-left: 15% !important;
   padding-right: 15% !important;
+}
+
+/* Media queries for responsive padding */
+@media (max-width: 1024px) {
+  .home-page {
+    padding-left: 10% !important;
+    padding-right: 10% !important;
   }
-  
+}
 
+@media (max-width: 768px) {
+  .home-page {
+    padding-left: 8% !important;
+    padding-right: 8% !important;
+  }
+}
 
+@media (max-width: 480px) {
+  .home-page {
+    padding-left: 6% !important;
+    padding-right: 6% !important;
+  }
+}

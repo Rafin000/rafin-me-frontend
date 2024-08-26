@@ -1,10 +1,13 @@
+// Testimonial.js
+
 import { useEffect, useState } from 'react';
 import './index.css';
 import TestimonialCard from './TestimonialCard';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination } from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Pagination } from 'swiper/modules';
+import "swiper/css/navigation";
 
 const Testimonial = () => {
   const [testimonials, setTestimonials] = useState([]);
@@ -42,12 +45,36 @@ const Testimonial = () => {
       <h1>Testimonials</h1>
       <Swiper
         slidesPerView={3}
-        spaceBetween={90}
+        spaceBetween={100} 
+        loop={true}
         pagination={{
           clickable: true,
+          dynamicBullets: true
         }}
-        modules={[Pagination]}
+        modules={[Autoplay, Pagination]}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
         className="mySwiper"
+        breakpoints={{
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 50,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+        }}
       >
         {testimonials.map((testimonial, index) => (
           <SwiperSlide key={index}>
@@ -56,7 +83,7 @@ const Testimonial = () => {
               author={testimonial.name}
               title={testimonial.designation}
               company={testimonial.company}
-              image={testimonial.image}
+              image={testimonial.image_link}
             />
           </SwiperSlide>
         ))}

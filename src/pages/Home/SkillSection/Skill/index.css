@@ -1,7 +1,8 @@
 .skill {
     display: flex;
     align-items: center;
-    gap: 8rem;
+    justify-content: space-between;
+    /* gap: 8rem; */
     border-radius: .4rem;
     padding: 1rem;
     box-shadow: 0 4px 20px #06080b; 

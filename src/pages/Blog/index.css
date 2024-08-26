@@ -24,23 +24,6 @@
     margin-top: 2rem;
   }
   
-  /* .blog-tags {
-    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 0.5rem;
-    margin-top: 3rem;
-  }
-
-  .blog-tags a {
-    color: #f5d07b;
-  }
-
-  .blog-tags a:hover {
-    text-decoration: underline;
-    color: #ffe6ac;
-  } */
-
 .pagination {
     display: flex;
     justify-content: center;

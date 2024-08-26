@@ -1,4 +1,4 @@
-.education-item > .year {
+.education-item .year {
     color: rgb(95, 95, 95);
     font-weight: 400;
     font-size: 95%;
@@ -33,6 +33,10 @@
     height: 0.5rem;
     background-color: #d4b059;
     border-radius: 50%;
-    position: absolute;
-    left: 18.706rem; 
+}
+
+.dot-year{
+    display: flex;
+    gap: 1rem;
+    transform: translateX(-1.3rem);
 }
