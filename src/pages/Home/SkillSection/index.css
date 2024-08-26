@@ -16,6 +16,7 @@
   font-size: 2.5rem;
 }
 
+
 .skills {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -25,18 +26,45 @@
 /* Media queries for responsiveness */
 @media (max-width: 1350px) {
   .skills {
-    grid-template-columns: repeat(3, 1fr); /* 2 skills per row on medium screens */
+    grid-template-columns: repeat(3, 1fr); 
+  }
+  .home-skills h1 {
+    font-size: 2.2rem; 
+  }
+  .home-skills {
+    gap: 6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-skills h1 {
+    font-size: 1.8rem; 
+  }
+  .home-skills {
+    gap: 6rem;
   }
 }
 
 @media (max-width: 1024px) {
   .skills {
-    grid-template-columns: repeat(2, 1fr); /* 2 skills per row on medium screens */
+    grid-template-columns: repeat(2, 1fr); 
+  }
+  .home-skills h1 {
+    font-size: 2rem; 
+  }
+  .home-skills {
+    gap: 4rem;
   }
 }
 
 @media (max-width: 640px) {
   .skills {
-    grid-template-columns: 1fr; /* 1 skill per row on small screens */
+    grid-template-columns: 1fr; 
+  }
+  .home-skills h1 {
+    font-size: 1.6rem; 
+  }
+  .home-skills {
+    gap: 4rem;
   }
 }

@@ -74,6 +74,10 @@ const Testimonial = () => {
             slidesPerView: 1,
             spaceBetween: 20,
           },
+          1: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
         }}
       >
         {testimonials.map((testimonial, index) => (

@@ -16,6 +16,49 @@
     margin-bottom: 8rem;
 }
 
+
+/* Media queries for heading responsiveness */
+@media (max-width: 1350px) {
+    .testimonial h1 {
+        font-size: 2.2rem;
+        margin-bottom: 6rem;
+    }
+    .testimonial {
+        margin-block: 4rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .testimonial h1 {
+        font-size: 2rem; 
+        margin-bottom: 4rem;
+    }
+    .testimonial {
+        margin-block: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonial h1 {
+        font-size: 1.8rem; 
+        margin-bottom: 2rem;
+    }
+    .testimonial {
+        margin-block: 1.5rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .testimonial h1 {
+        font-size: 1.6rem; 
+        margin-bottom: 2rem;
+    }
+    .testimonial {
+        margin-block: 1.5rem;
+    }
+}
+
+
 .swiper {
     width: 100%;
     height: 25rem;

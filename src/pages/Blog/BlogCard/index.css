@@ -1,50 +1,95 @@
 .blog-post {
-    display: flex;
-    justify-content: start;
-    align-items: start;
-    gap: 3rem !important;
-    margin-bottom: 1rem;
-    border: 1px solid #d4b059;
-    padding: 1rem;
-    width: 100%;
-    border-radius: .875rem;
-  }
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  gap: 3rem !important;
+  margin-bottom: 1rem;
+  border: 1px solid #d4b059;
+  padding: 1rem;
+  width: 100%;
+  border-radius: .875rem;
+}
 
-  .blog-post-content{
-    margin: 0;
-    width: 100%;
-  }
+.blog-post-content {
+  margin: 0;
+  width: 100%;
+}
 
-  .blog-post .blog-post-title {
-    display: flex;
-    flex-wrap: wrap;
-    color: #d4b059;
-    font-weight: 600;
-    font-size: larger;
-    font-family: Georgia, Times, 'Times New Roman', serif;
-    text-decoration: none; 
+.blog-post .blog-post-title {
+  display: flex;
+  flex-wrap: wrap;
+  color: #d4b059;
+  font-weight: 600;
+  font-size: larger;
+  font-family: Georgia, Times, 'Times New Roman', serif;
+  text-decoration: none;
 }
 
 .blog-post .blog-post-title:hover {
-    text-decoration: underline;
-    color: #f5d07b;
+  text-decoration: underline;
+  color: #f5d07b;
 }
 
+.blog-post-date {
+  padding: 0;
+  margin: 0;
+  font-style: italic;
+  font-weight: lighter;
+  font-size: 1rem;
+  padding-top: .18rem;
+  white-space: nowrap;
+}
 
+.blog-post-author-read {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Georgia, Times, 'Times New Roman', serif;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .blog-post {
+      gap: 2rem !important;
+  }
+  .blog-post .blog-post-title {
+      font-size: 1.5rem;
+  }
   .blog-post-date {
-    padding: 0;
-    margin: 0;
-    font-style: italic;
-    font-weight: lighter;
-    font-size: 1rem;
-    padding-top: .18rem;
-    white-space: nowrap;
+      font-size: 0.875rem;
   }
-  
+  .blog-post-author-read {
+      font-size: 0.875rem; /* Adjusting font size for author and reading time */
+  }
+}
 
-  .blog-post-author-read{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: Georgia, Times, 'Times New Roman', serif;;
+@media (max-width: 768px) {
+  .blog-post {
+      flex-direction: column;
+      gap: 1.5rem !important;
   }
+  .blog-post .blog-post-title {
+      font-size: 1.25rem;
+  }
+  .blog-post-date {
+      font-size: 0.75rem;
+  }
+  .blog-post-author-read {
+      font-size: 0.75rem; /* Adjusting font size for author and reading time */
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-post {
+      gap: 1rem !important;
+  }
+  .blog-post .blog-post-title {
+      font-size: 1rem;
+  }
+  .blog-post-date {
+      font-size: 0.65rem;
+  }
+  .blog-post-author-read {
+      font-size: 0.65rem; /* Adjusting font size for author and reading time */
+  }
+}

@@ -4,23 +4,83 @@
     font-size: 95%;
 }
 
+@media (max-width: 1350px) {
+    .education-item .year {
+        font-size: 90%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .education-item .year {
+        font-size: 85%;
+    }
+}
+
+@media (max-width: 768px) {
+    .education-item .year {
+        font-size: 80%;
+    }
+}
+
+@media (max-width: 640px) {
+    .education-item .year {
+        font-size: 75%;
+    }
+}
+
 .education-item-year {
     display: flex;
     gap: 1rem;
     padding-block: 1rem;
 }
 
+@media (max-width: 1024px) {
+    .education-item-year {
+        gap: 0.8rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .education-item-year {
+        gap: 0.5rem;
+    }
+}
+
 .education-item-left {
     border-left: 2px solid #d4b059;
 }
 
-.education-item-right{
+.education-item-right {
     display: flex;
     flex-direction: column;
     justify-content: center;
     font-size: .9rem;
     gap: .8rem;
     font-family: 'Courier New', Courier, monospace;
+}
+
+@media (max-width: 1350px) {
+    .education-item-right {
+        font-size: .85rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .education-item-right {
+        font-size: .8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .education-item-right {
+        font-size: .75rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .education-item-right {
+        font-size: .7rem;
+    }
 }
 
 .university {
@@ -35,7 +95,7 @@
     border-radius: 50%;
 }
 
-.dot-year{
+.dot-year {
     display: flex;
     gap: 1rem;
     transform: translateX(-1.3rem);

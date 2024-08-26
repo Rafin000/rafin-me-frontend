@@ -1,51 +1,85 @@
 .blog-page {
-    font-family: Arial, sans-serif; 
-    margin-block: 2rem;
-    padding-left: 28%;
-    padding-right: 28% !important;
+  font-family: Arial, sans-serif; 
+  margin-block: 2rem;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+@media (min-width: 992px) {
+  .blog-page {
+      padding-left: 20%;
+      padding-right: 20%;
   }
-  
-  .blog-header {
-    padding: .5rem;
-    padding-left: 0;
-    border-bottom: 1px solid #d4b059;
+}
+
+@media (min-width: 1200px) {
+  .blog-page {
+      padding-left: 28%;
+      padding-right: 28%;
   }
-  
-  .blog-header {
-    margin: 0;
-    color: #d4b059;
-    font-size: 1rem;
-    font-family: 'Courier New', Courier, monospace;
-  }
-  
-  .blog-body {
-    padding: 1rem;
-    padding-left: 0;
-    margin-top: 2rem;
-  }
-  
+}
+
+.blog-header {
+  padding: .5rem;
+  padding-left: 0;
+  border-bottom: 1px solid #d4b059;
+  margin: 0;
+  color: #d4b059;
+  font-size: 1rem;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.blog-body {
+  padding: 1rem;
+  padding-left: 0;
+  margin-top: 2rem;
+}
+
 .pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
 .pagination button {
-    background-color: #d4b059;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    font-size: 1rem;
+  background-color: #d4b059;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
 .pagination button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
 .pagination span {
-    font-size: 1rem;
+  font-size: 1rem;
+}
+
+/* Responsive adjustments for pagination */
+@media (max-width: 768px) {
+  .pagination button {
+    font-size: 0.875rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .pagination span {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pagination button {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .pagination span {
+    font-size: 0.75rem;
+  }
 }
