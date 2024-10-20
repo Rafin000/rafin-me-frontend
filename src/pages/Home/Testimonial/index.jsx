@@ -8,6 +8,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/pagination';
 import "swiper/css/navigation";
+import { API_BASE_URL } from '../../../const';
 
 const Testimonial = () => {
   const [testimonials, setTestimonials] = useState([]);
@@ -17,7 +18,7 @@ const Testimonial = () => {
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:5000/api/v1/users/312b9d52-d0a2-476c-81be-88566b7b600b');
+        const response = await fetch(API_BASE_URL + '/users/312b9d52-d0a2-476c-81be-88566b7b600b');
         if (!response.ok) throw new Error('Network response was not ok');
         
         const data = await response.json();

@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import './index.css';
 import BlogCard from './BlogCard';
+import { API_BASE_URL } from '../../const';
 
 function Blog() {
     const [posts, setPosts] = useState([]);
@@ -11,7 +12,7 @@ function Blog() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/api/v1/blogs?page=${currentPage}&per_page=10`);
+                const response = await fetch(`${API_BASE_URL}/blogs?page=${currentPage}&per_page=10`);
                 const result = await response.json();
                 setPosts(result.data);
                 setTotalPages(result.pages);

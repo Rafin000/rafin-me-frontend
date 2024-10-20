@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './index.css';
+import { API_BASE_URL } from '../../../const';
 
 const HomeAbout = () => {
   const [userData, setUserData] = useState(null);
@@ -7,7 +8,7 @@ const HomeAbout = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/api/v1/users/312b9d52-d0a2-476c-81be-88566b7b600b')
+    fetch(API_BASE_URL + '/users/312b9d52-d0a2-476c-81be-88566b7b600b')
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -35,7 +36,7 @@ const HomeAbout = () => {
   return (
     <div className="home-about">
       <div className='home-about-left'>
-        <img src="/src/assets/header.png" alt="Rafin" />
+        <img src="https://s3.brilliant.com.bd/rafin_storage/header.png" alt="Rafin" />
       </div>
       <div className='home-about-right'>
         <h1 className='home-about-right-header'>About Me</h1>

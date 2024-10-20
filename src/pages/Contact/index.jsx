@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './index.css';
+import { API_BASE_URL } from '../../const';
 
 function Contact() {
     const [formData, setFormData] = useState({
@@ -20,7 +21,7 @@ function Contact() {
         e.preventDefault();
 
         try {
-            const response = await fetch('http://127.0.0.1:5000/api/v1/mails/', {
+            const response = await fetch(API_BASE_URL + '/mails/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

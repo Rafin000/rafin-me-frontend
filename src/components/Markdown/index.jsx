@@ -2,7 +2,6 @@
 import './index.css';
 import { useState } from 'react';
 import MarkdownEditor from '@uiw/react-markdown-editor';
-// import MarkdownPreview from '@uiw/react-markdown-preview';
 
 const mdStr ='# This is a H1  \n## This is a H2  \n###### This is a H6';
 

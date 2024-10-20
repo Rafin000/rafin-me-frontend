@@ -3,6 +3,7 @@ import axios from 'axios';
 import EducationItem from './EducationItem';
 import ExperienceItem from './ExperienceItem';
 import './index.css';
+import { API_BASE_URL } from '../../../const';
 
 const Timeline = () => {
   const [educationData, setEducationData] = useState([]);
@@ -11,7 +12,7 @@ const Timeline = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:5000/api/v1/users/312b9d52-d0a2-476c-81be-88566b7b600b');
+        const response = await axios.get(API_BASE_URL + '/users/312b9d52-d0a2-476c-81be-88566b7b600b');
         const userData = response.data.data;
         
         setEducationData(userData.education);

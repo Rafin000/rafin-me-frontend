@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './index.css';
+import { API_BASE_URL } from '../../../const';
 
 const HomeHeader = () => {
   const [userData, setUserData] = useState(null);
@@ -7,7 +8,7 @@ const HomeHeader = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/api/v1/users/312b9d52-d0a2-476c-81be-88566b7b600b')
+    fetch(API_BASE_URL + '/users/312b9d52-d0a2-476c-81be-88566b7b600b')
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -27,7 +28,7 @@ const HomeHeader = () => {
   const handleDownload = () => {
     const link = document.createElement('a');
     link.href = `${userData.cv_link}`; 
-    link.download = 'cv.pdf';
+    link.download = 'https://s3.brilliant.com.bd/rafin_storage/cv.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

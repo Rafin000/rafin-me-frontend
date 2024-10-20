@@ -4,6 +4,7 @@ import MarkdownPreview from '@uiw/react-markdown-preview';
 import axios from 'axios';
 import './index.css'; 
 import Tags from '../../../../components/tag';
+import { API_BASE_URL } from '../../../../const';
 
 const BlogDetails = () => {
   const { postId } = useParams();
@@ -18,7 +19,7 @@ const BlogDetails = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const response = await axios.get(`http://127.0.0.1:5000/api/v1/blogs/${postId}`);
+        const response = await axios.get(`${API_BASE_URL}/blogs/${postId}`);
         setPost(response.data.data);
       } catch (error) {
         console.error('Error fetching the blog post:', error);
