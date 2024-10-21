@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import './index.css';
 import BlogCard from './BlogCard';
-import { API_BASE_URL } from '../../const';
+import { API_BASE_URL, API_KEY } from '../../const';
 
 function Blog() {
     const [posts, setPosts] = useState([]);
@@ -12,7 +12,14 @@ function Blog() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`${API_BASE_URL}/blogs?page=${currentPage}&per_page=10`);
+                const response = await fetch(`${API_BASE_URL}/blogs?page=${currentPage}&per_page=10`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'API-KEY': API_KEY 
+                    }
+                });
+    
                 const result = await response.json();
                 setPosts(result.data);
                 setTotalPages(result.pages);
@@ -20,9 +27,10 @@ function Blog() {
                 console.error('Error fetching posts:', error);
             }
         };
-
+    
         fetchData();
     }, [currentPage]);
+
 
     const handlePageChange = (newPage) => {
         if (newPage > 0 && newPage <= totalPages) {

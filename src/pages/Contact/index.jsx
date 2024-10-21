@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './index.css';
-import { API_BASE_URL } from '../../const';
+import { API_BASE_URL, API_KEY } from '../../const';
 
 function Contact() {
     const [formData, setFormData] = useState({
@@ -24,7 +24,8 @@ function Contact() {
             const response = await fetch(API_BASE_URL + '/mails/', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'API-KEY': API_KEY 
                 },
                 body: JSON.stringify(formData)
             });

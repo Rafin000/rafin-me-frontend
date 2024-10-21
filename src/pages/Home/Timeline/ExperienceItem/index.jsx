@@ -1,8 +1,7 @@
 /* eslint-disable react/prop-types */
 import './index.css';
 
-const ExperienceItem = ({year, designation, company}) => {
-
+const ExperienceItem = ({year, designation, company, work_details}) => {
     return (
         <div className="experience-item">
             <div className='dot-year'>
@@ -15,8 +14,9 @@ const ExperienceItem = ({year, designation, company}) => {
                     <div className='designation'>{designation}</div>
                     <div className='company'>{company}</div>
                     <ul className='contribution'>
-                        <li>Continuously developing Brilliant Cloud Portal (BCP)</li>
-                        <li>Designed and Developed Brilliant Ticketing System frontend for customer support.</li>
+                    {work_details && work_details.map((item, index) => (
+                        <li key={index}>{item}</li>
+                    ))}
                     </ul>  
                 </div> 
             </div>

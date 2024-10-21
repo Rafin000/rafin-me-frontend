@@ -112,3 +112,15 @@
     gap: 1rem;
     transform: translateX(-1.3rem);
 }
+
+.contribution li{
+    padding-block: .375rem; 
+}
+
+.contribution li:first-child {
+    padding-top: 0;
+}
+
+.contribution li:last-child {
+    padding-bottom: 0;
+}

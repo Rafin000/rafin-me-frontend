@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './index.css';
-import { URLs,API_BASE_URL } from '../../const';
+import { URLs,API_BASE_URL, API_KEY } from '../../const';
 
 function Footer() {
   const [socialLinks, setSocialLinks] = useState({});
@@ -8,18 +8,26 @@ function Footer() {
   useEffect(() => {
     async function fetchSocialLinks() {
       try {
-        const response = await fetch(API_BASE_URL+'/socials');
+        const response = await fetch(`${API_BASE_URL}/socials/`, {
+          method: 'GET',
+          headers: {
+              'Content-Type': 'application/json',
+              'API-KEY': API_KEY 
+          }
+        });
+        
         const result = await response.json();
-        if (result.data.length > 0) {
+        if (result.data && result.data.length > 0) {
           setSocialLinks(result.data[0]);
         }
       } catch (error) {
         console.error('Error fetching social media links:', error);
       }
     }
-
+  
     fetchSocialLinks();
   }, []);
+  
 
   return (
     <footer className="footer">

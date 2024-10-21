@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './index.css';
-import { API_BASE_URL } from '../../../const';
+import { API_BASE_URL , API_KEY} from '../../../const';
 
 const HomeAbout = () => {
   const [userData, setUserData] = useState(null);
@@ -8,7 +8,12 @@ const HomeAbout = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(API_BASE_URL + '/users/312b9d52-d0a2-476c-81be-88566b7b600b')
+    fetch(`${API_BASE_URL}/users/312b9d52-d0a2-476c-81be-88566b7b600b`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'API-KEY': API_KEY 
+      }
+    })
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -23,7 +28,7 @@ const HomeAbout = () => {
         setError(error);
         setLoading(false);
       });
-  }, []); 
+  }, []);
 
   if (loading) {
     return <div>Loading...</div>;
