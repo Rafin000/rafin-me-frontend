@@ -12,7 +12,7 @@ function Blog() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`${API_BASE_URL}/blogs?page=${currentPage}&per_page=10`, {
+                const response = await fetch(`${API_BASE_URL}/blogs/?page=${currentPage}&per_page=10`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
