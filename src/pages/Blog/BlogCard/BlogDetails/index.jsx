@@ -35,8 +35,12 @@ const BlogDetails = () => {
   }, [postId]);
 
   if (!post) {
-    return <p>Loading...</p>;
-  }
+    return (
+        <div className="spinner-container">
+            <div className="spinner"></div>
+        </div>
+    );
+}
 
   return (
     <div className="blog-post-detail">
