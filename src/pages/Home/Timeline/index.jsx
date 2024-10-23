@@ -3,7 +3,7 @@ import axios from 'axios';
 import EducationItem from './EducationItem';
 import ExperienceItem from './ExperienceItem';
 import './index.css';
-import { API_BASE_URL, API_KEY } from '../../../const';
+import { API_BASE_URL, API_KEY } from '../../../config';
 
 const Timeline = () => {
   const [educationData, setEducationData] = useState([]);

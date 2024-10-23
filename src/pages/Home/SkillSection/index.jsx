@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './index.css';
 import Skill from './Skill';
-import { API_BASE_URL, API_KEY } from '../../../const';
+import { API_BASE_URL, API_KEY } from '../../../config';
 
 const SkillsSection = () => {
   const [skills, setSkills] = useState([]);
@@ -32,7 +32,7 @@ const SkillsSection = () => {
       });
   }, []);
 
-  
+
   if (loading) {
     return <div>Loading...</div>;
   }

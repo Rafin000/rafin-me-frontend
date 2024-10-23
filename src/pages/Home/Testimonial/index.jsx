@@ -7,7 +7,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/pagination';
 import "swiper/css/navigation";
-import { API_BASE_URL, API_KEY } from '../../../const';
+import { API_BASE_URL, API_KEY } from '../../../config';
 
 const Testimonial = () => {
   const [testimonials, setTestimonials] = useState([]);

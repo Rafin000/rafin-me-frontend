@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './index.css';
-import { URLs,API_BASE_URL, API_KEY } from '../../const';
+import { URLs,API_BASE_URL, API_KEY } from '../../config';
 
 function Footer() {
   const [socialLinks, setSocialLinks] = useState({});

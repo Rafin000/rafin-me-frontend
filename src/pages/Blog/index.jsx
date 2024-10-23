@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import './index.css';
 import BlogCard from './BlogCard';
-import { API_BASE_URL, API_KEY } from '../../const';
+import { API_BASE_URL, API_KEY } from '../../config';
 
 function Blog() {
     const [posts, setPosts] = useState([]);

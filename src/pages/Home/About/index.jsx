@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './index.css';
-import { API_BASE_URL , API_KEY} from '../../../const';
+import { API_BASE_URL , API_KEY} from '../../../config';
 
 const HomeAbout = () => {
   const [userData, setUserData] = useState(null);

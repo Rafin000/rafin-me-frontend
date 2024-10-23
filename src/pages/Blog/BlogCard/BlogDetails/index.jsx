@@ -4,7 +4,7 @@ import MarkdownPreview from '@uiw/react-markdown-preview';
 import axios from 'axios';
 import './index.css'; 
 import Tags from '../../../../components/tag';
-import { API_BASE_URL , API_KEY} from '../../../../const';
+import { API_BASE_URL , API_KEY} from '../../../../config';
 
 const BlogDetails = () => {
   const { postId } = useParams();

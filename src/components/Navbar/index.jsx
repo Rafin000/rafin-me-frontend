@@ -1,5 +1,5 @@
 import './index.css'; 
-import { URLs } from '../../const';
+import { URLs } from '../../config';
 
 function Navbar() {
   return (

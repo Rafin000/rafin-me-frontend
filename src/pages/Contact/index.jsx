@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './index.css';
-import { API_BASE_URL, API_KEY } from '../../const';
+import { API_BASE_URL, API_KEY } from '../../config';
 
 function Contact() {
     const [formData, setFormData] = useState({
