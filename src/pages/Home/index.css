@@ -17,6 +17,30 @@
   padding-right: 15% !important;
 }
 
+.scroll-to-top {
+  position: fixed;
+  bottom: 2%;
+  right: 1.5%;
+  background-color: #ffd46e;
+  color: #0D1117;
+  padding: .325rem;
+  padding-inline: .875rem;
+  border-radius: 10%;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s, visibility 0.3s;
+  opacity: 0.6;
+  z-index: 1000;
+}
+
+.scroll-to-top:hover {
+  opacity: 1;
+}
+
 /* Media queries for responsive padding */
 @media (max-width: 1024px) {
   .home-page {
@@ -29,6 +53,14 @@
   .home-page {
     padding-left: 8% !important;
     padding-right: 8% !important;
+  }
+
+  .scroll-to-top {
+    bottom: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
   }
 }
 

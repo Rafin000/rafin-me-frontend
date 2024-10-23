@@ -1,10 +1,10 @@
+import './index.css'; 
+import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import MarkdownPreview from '@uiw/react-markdown-preview';
-import axios from 'axios';
-import './index.css'; 
-import Tags from '../../../../components/tag';
 import { API_BASE_URL , API_KEY} from '../../../../config';
+import MarkdownPreview from '@uiw/react-markdown-preview';
+import Tags from '../../../../components/tag';
 
 const BlogDetails = () => {
   const { postId } = useParams();

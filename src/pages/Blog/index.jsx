@@ -1,9 +1,9 @@
-// Blog.js
-import { useState, useEffect } from 'react';
 import './index.css';
+import { useState, useEffect } from 'react';
+import { API_BASE_URL, API_KEY } from '../../config';
 import BlogCard from './BlogCard';
 import BlogCardSkeleton from '../../skeletons/BlogCardSkeleton';
-import { API_BASE_URL, API_KEY } from '../../config';
+
 
 
 function Blog() {

@@ -1,6 +1,7 @@
-import { useState } from 'react';
 import './index.css';
+import { useState } from 'react';
 import { API_BASE_URL, API_KEY } from '../../config';
+import Modal from '../../components/modal';
 
 function Contact() {
     const [formData, setFormData] = useState({
@@ -8,6 +9,8 @@ function Contact() {
         email: '',
         message: ''
     });
+    const [isLoading, setIsLoading] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -19,6 +22,7 @@ function Contact() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
 
         try {
             const response = await fetch(API_BASE_URL + '/mails/', {
@@ -32,17 +36,22 @@ function Contact() {
 
             const result = await response.json();
             if (response.ok) {
-                alert('Message sent successfully!');
+                setIsModalOpen(true);
                 setFormData({
                     name: '',
                     email: '',
                     message: ''
-                })
+                });
+                setTimeout(() => {
+                    setIsModalOpen(false);
+                }, 2000);
             } else {
                 alert('Failed to send message: ' + result.message);
             }
         } catch (error) {
             alert('An error occurred: ' + error.message);
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -85,9 +94,15 @@ function Contact() {
                             onChange={handleChange} 
                         ></textarea>
                     </div>
-                    <button type="submit" className="send-button">Send</button>
+                    <button type="submit" className="send-button" disabled={isLoading}>
+                        {isLoading ? 'Sending...' : 'Send'}
+                    </button>
                 </form>
             </div>
+            <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+                <h2>Thank You!</h2>
+                <p>Your message has been sent successfully.</p>
+            </Modal>
         </div>
     );
 }

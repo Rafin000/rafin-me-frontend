@@ -2,12 +2,12 @@
 // Testimonial.js
 // import { useEffect, useState } from 'react';
 import './index.css';
-import TestimonialCard from './TestimonialCard';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination } from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/pagination';
 import "swiper/css/navigation";
+import TestimonialCard from './TestimonialCard';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination } from "swiper/modules";
 // import { API_BASE_URL, API_KEY } from '../../../config';
 
 const Testimonial = ({testimonials}) => {

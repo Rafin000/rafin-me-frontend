@@ -11,37 +11,55 @@ function Home() {
     const [userData, setUserData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [showScrollTop, setShowScrollTop] = useState(false);
 
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                // Artificial delay of 3 seconds
-                // await new Promise(resolve => setTimeout(resolve, 3000));
+      const fetchData = async () => {
+        try {
+            // Artificial delay of 3 seconds
+            // await new Promise(resolve => setTimeout(resolve, 3000));
 
-                const response = await fetch(`${API_BASE_URL}/users/312b9d52-d0a2-476c-81be-88566b7b600b`, {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'API-KEY': API_KEY 
-                    }
-                });
-
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
+            const response = await fetch(`${API_BASE_URL}/users/312b9d52-d0a2-476c-81be-88566b7b600b`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'API-KEY': API_KEY 
                 }
+            });
 
-                const data = await response.json();
-                setUserData(data.data);
-            } catch (error) {
-                setError(error);
-            } finally {
-                setLoading(false);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
             }
-        };
 
-        fetchData();
+            const data = await response.json();
+            setUserData(data.data);
+        } catch (error) {
+            setError(error);
+        } finally {
+            setLoading(false);
+        }
+      };
+
+      fetchData();
+      const handleScroll = () => {
+        if (window.pageYOffset > 300) {
+            setShowScrollTop(true);
+        } else {
+            setShowScrollTop(false);
+        }
+      };
+
+      window.addEventListener('scroll', handleScroll);
+
+      return () => window.removeEventListener('scroll', handleScroll);
     }, []);
     
+      const scrollToTop = () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      };
       if (loading) {
         return (
             <div className="spinner-container">
@@ -77,6 +95,11 @@ function Home() {
             <Testimonial 
               testimonials={userData.testimonials}
             />
+            {showScrollTop && (
+                <button className="scroll-to-top" onClick={scrollToTop}>
+                    ↑
+                </button>
+            )}
         </div>
     );
 }

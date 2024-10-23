@@ -94,6 +94,18 @@
 }
 
 
+.send-button:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+}
+
+.send-button:disabled:hover {
+    background-color: #cccccc;
+    color: #666666;
+    border: 1px solid #cccccc;
+}
+
 /* Responsive adjustments */
 @media (max-width: 1200px) {
     .form-container {
