@@ -17,9 +17,6 @@ function Home() {
     useEffect(() => {
       const fetchData = async () => {
         try {
-            // Artificial delay of 3 seconds
-            // await new Promise(resolve => setTimeout(resolve, 3000));
-
             const response = await fetch(`${API_BASE_URL}/users/312b9d52-d0a2-476c-81be-88566b7b600b`, {
                 headers: {
                     'Content-Type': 'application/json',
@@ -71,8 +68,6 @@ function Home() {
       if (error) {
         return <div>Error: {error.message}</div>;
       }
-
-      // console.log(userData)
 
     return (
         <div className="home-page">
