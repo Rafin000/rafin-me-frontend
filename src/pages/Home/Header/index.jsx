@@ -1,37 +1,7 @@
-// import { useEffect, useState } from 'react';
+/* eslint-disable react/prop-types */
 import './index.css';
-// import { API_BASE_URL, API_KEY } from '../../../config';
 
-// eslint-disable-next-line react/prop-types
 const HomeHeader = ({full_name, designation, profile_picture_link, cv_link}) => {
-  // const [userData, setUserData] = useState(null);
-  // const [loading, setLoading] = useState(true);
-  // const [error, setError] = useState(null);
-
-  // useEffect(() => {
-  //   fetch(`${API_BASE_URL}/users/312b9d52-d0a2-476c-81be-88566b7b600b`, {
-  //     method: 'GET',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       'API-KEY': API_KEY 
-  //     }
-  //   })
-  //     .then(response => {
-  //       if (!response.ok) {
-  //         throw new Error('Network response was not ok');
-  //       }
-  //       return response.json();
-  //     })
-  //     .then(data => {
-  //       setUserData(data.data); 
-  //       setLoading(false);
-  //     })
-  //     .catch(error => {
-  //       setError(error);
-  //       setLoading(false);
-  //     });
-  // }, []);
-
   const handleDownload = () => {
     const link = document.createElement('a');
     link.href = `${cv_link}`; 

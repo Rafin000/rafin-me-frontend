@@ -5,8 +5,8 @@ import './index.css'
 const Skill = ({ imageSrc, altText, skillName }) => {
   return (
     <div className='skill'>
-      <img src={imageSrc} alt={altText} />
       <span className='skill-content'>{skillName}</span>
+      <img src={imageSrc} alt={altText} />
     </div>
   );
 };

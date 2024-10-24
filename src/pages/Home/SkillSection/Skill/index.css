@@ -8,7 +8,7 @@
 }
 
 .skill img {
-  width: 12%; /* Default image width */
+  width: 12%; 
 }
 
 .skill:hover {
@@ -22,7 +22,7 @@
   align-items: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bold;
-  font-size: larger; /* Default font size */
+  font-size: larger; 
 }
 
 .skill:hover .skill-content {
@@ -32,21 +32,28 @@
 /* Media queries for responsiveness */
 @media (max-width: 1024px) {
   .skill img {
-      width: 10%; /* Increase image size for medium screens */
+      width: 10%; 
   }
 
   .skill-content {
-      font-size: 1.25rem; /* Adjust font size for medium screens */
+      font-size: 1rem; 
   }
 }
 
 @media (max-width: 640px) {
   .skill img {
-      width: 10%; /* Increase image size for small screens */
+      width: 18%; 
   }
 
   .skill-content {
-      font-size: 1rem; /* Adjust font size for small screens */
-      text-align: center; /* Center text for small screens */
+      font-size: 1rem; 
+      text-align: start; 
   }
+}
+
+
+@media (max-width: 480px) {
+  .skill-content {
+    font-size: .7rem; 
+}
 }

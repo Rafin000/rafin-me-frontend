@@ -59,12 +59,18 @@
 
 @media (max-width: 640px) {
   .skills {
-    grid-template-columns: 1fr; 
+    grid-template-columns: repeat(2, 1fr); 
   }
   .home-skills h1 {
     font-size: 1.6rem; 
   }
   .home-skills {
     gap: 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills {
+    gap: 1rem;
   }
 }
