@@ -2,7 +2,7 @@ import './index.css';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { API_BASE_URL , API_KEY} from '../../../../config';
+import { API_BASE_URL } from '../../../../config';
 import MarkdownPreview from '@uiw/react-markdown-preview';
 import Tags from '../../../../components/tag';
 import ScrollToTop from '../../../../components/ScrollToTop';
@@ -20,12 +20,7 @@ const BlogDetails = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const response = await axios.get(`${API_BASE_URL}/blogs/${postId}`, {
-          headers: {
-            'Content-Type': 'application/json',
-            'API-KEY': API_KEY,
-          },
-        });
+        const response = await axios.get(`${API_BASE_URL}/blogs/${postId}`);
         setPost(response.data.data);
       } catch (error) {
         console.error('Error fetching the blog post:', error);

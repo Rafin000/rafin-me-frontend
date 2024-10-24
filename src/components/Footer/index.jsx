@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './index.css';
-import { URLs,API_BASE_URL, API_KEY } from '../../config';
+import { URLs,API_BASE_URL } from '../../config';
 
 function Footer() {
   const [socialLinks, setSocialLinks] = useState({});
@@ -8,13 +8,7 @@ function Footer() {
   useEffect(() => {
     async function fetchSocialLinks() {
       try {
-        const response = await fetch(`${API_BASE_URL}/socials/`, {
-          method: 'GET',
-          headers: {
-              'Content-Type': 'application/json',
-              'API-KEY': API_KEY 
-          }
-        });
+        const response = await fetch(`${API_BASE_URL}/socials/`);
         
         const result = await response.json();
         if (result.data && result.data.length > 0) {

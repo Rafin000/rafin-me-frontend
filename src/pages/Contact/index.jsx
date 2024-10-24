@@ -1,6 +1,6 @@
 import './index.css';
 import { useState } from 'react';
-import { API_BASE_URL, API_KEY } from '../../config';
+import { API_BASE_URL } from '../../config';
 import Modal from '../../components/modal';
 
 function Contact() {
@@ -27,10 +27,6 @@ function Contact() {
         try {
             const response = await fetch(API_BASE_URL + '/mails/', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'API-KEY': API_KEY 
-                },
                 body: JSON.stringify(formData)
             });
 

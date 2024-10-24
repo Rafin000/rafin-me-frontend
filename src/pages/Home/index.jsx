@@ -5,7 +5,7 @@ import HomeHeader from './Header';
 import HomeAbout from './About';
 import Testimonial from './Testimonial';
 import { useEffect, useState } from 'react';
-import { API_BASE_URL , API_KEY} from '../../config';
+import { API_BASE_URL } from '../../config';
 import ScrollToTop from '../../components/ScrollToTop';
 
 function Home() {
@@ -17,12 +17,7 @@ function Home() {
     useEffect(() => {
       const fetchData = async () => {
         try {
-            const response = await fetch(`${API_BASE_URL}/users/312b9d52-d0a2-476c-81be-88566b7b600b`, {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'API-KEY': API_KEY 
-                }
-            });
+            const response = await fetch(`${API_BASE_URL}/users/312b9d52-d0a2-476c-81be-88566b7b600b`);
 
             if (!response.ok) {
                 throw new Error('Network response was not ok');

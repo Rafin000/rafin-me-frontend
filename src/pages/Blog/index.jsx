@@ -1,6 +1,6 @@
 import './index.css';
 import { useState, useEffect } from 'react';
-import { API_BASE_URL, API_KEY } from '../../config';
+import { API_BASE_URL } from '../../config';
 import BlogCard from './BlogCard';
 import BlogCardSkeleton from '../../skeletons/BlogCardSkeleton';
 
@@ -16,13 +16,7 @@ function Blog() {
         const fetchData = async () => {
             setLoading(true);
             try {
-                const response = await fetch(`${API_BASE_URL}/blogs/?page=${currentPage}&per_page=10`, {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'API-KEY': API_KEY 
-                    }
-                });
+                const response = await fetch(`${API_BASE_URL}/blogs/?page=${currentPage}&per_page=10`);
     
                 const result = await response.json();
                 setPosts(result.data);
