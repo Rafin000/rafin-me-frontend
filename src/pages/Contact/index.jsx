@@ -27,6 +27,9 @@ function Contact() {
         try {
             const response = await fetch(API_BASE_URL + '/mails/', {
                 method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
                 body: JSON.stringify(formData)
             });
 
