@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { API_BASE_URL , API_KEY} from '../../../../config';
 import MarkdownPreview from '@uiw/react-markdown-preview';
 import Tags from '../../../../components/tag';
+import ScrollToTop from '../../../../components/ScrollToTop';
 
 const BlogDetails = () => {
   const { postId } = useParams();
@@ -66,6 +67,7 @@ const BlogDetails = () => {
         }
         <MarkdownPreview
             className="markdown-preview"
+            // style={{backgroundColor:"#0D1117"}}
             source={post.content}
             rehypeRewrite={(node, index, parent) => {
                 if (node.tagName === "a" && parent && /^h(1|2|3|4|5|6)/.test(parent.tagName)) {
@@ -74,6 +76,7 @@ const BlogDetails = () => {
             }}
         />
         <Tags tags={post.tags}/>
+        <ScrollToTop />
     </div>
   );
 };
