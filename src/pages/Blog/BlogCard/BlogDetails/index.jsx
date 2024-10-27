@@ -55,14 +55,13 @@ const BlogDetails = () => {
                 <p>{post.summary}</p>: ''
         }
         {post.thumbnail_url?
-                <img src='https://s3.brilliant.com.bd/rafin_storage/locust.png' alt={`${post.title} thumbnail`} />: ''
+                <img src={`${post.thumbnail_url}`} alt={`${post.title} thumbnail`} />: ''
         }
         {post.thumbnail_url?
                <hr className="blog-post-divider" />: ''
         }
         <MarkdownPreview
             className="markdown-preview"
-            // style={{backgroundColor:"#0D1117"}}
             source={post.content}
             rehypeRewrite={(node, index, parent) => {
                 if (node.tagName === "a" && parent && /^h(1|2|3|4|5|6)/.test(parent.tagName)) {

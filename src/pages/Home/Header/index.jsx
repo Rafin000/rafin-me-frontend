@@ -11,14 +11,6 @@ const HomeHeader = ({full_name, designation, profile_picture_link, cv_link}) => 
     document.body.removeChild(link);
   };
 
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
-
-  // if (error) {
-  //   return <div>Error: {error.message}</div>;
-  // }
-
   return (
     <header className="home-header">
       <div className='home-header-left'>
