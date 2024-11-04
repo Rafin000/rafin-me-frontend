@@ -1,12 +1,6 @@
 pipeline {
     agent any
 
-    // parameters {
-    //     string(name: 'DOCKER_USERNAME', defaultValue: 'rafin1998', description: 'Docker Hub Username')
-    //     string(name: 'REPO_NAME', defaultValue: 'rafin-blog-site', description: 'Repository Name')
-    //     string(name: 'IMAGE_TAG', defaultValue: '2.8-frontend', description: 'Image Tag')
-    // }
-
     environment {
         DOCKER_IMAGE = "${params.DOCKER_USERNAME}/${params.REPO_NAME}:${params.IMAGE_TAG}"
     }
@@ -14,7 +8,10 @@ pipeline {
     stages {
         stage('Checkout SCM') {
             steps {
-                git 'https://github.com/Rafin000/rafin-me-frontend.git'
+                script {
+                    // Specify the branch name explicitly
+                    git branch: 'main', url: 'https://github.com/Rafin000/rafin-me-frontend.git'
+                }
             }
         }
         stage('Build Docker Image') {
