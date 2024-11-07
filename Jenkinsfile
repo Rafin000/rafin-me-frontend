@@ -9,7 +9,6 @@ pipeline {
         stage('Checkout SCM') {
             steps {
                 script {
-                    // Specify the branch name explicitly
                     git branch: 'main', url: 'https://github.com/Rafin000/rafin-me-frontend.git'
                 }
             }
