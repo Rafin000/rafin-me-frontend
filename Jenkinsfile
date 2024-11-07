@@ -35,7 +35,7 @@ pipeline {
                 GIT_REPO_NAME = "rafin-me-frontend"
                 GIT_USER_NAME = "Rafin000"
                 GIT_USER_EMAIL = "marufulislam00000@gmail.com"
-                BUILD_NUMBER = ${params.IMAGE_TAG}
+                BUILD_NUMBER = "${params.IMAGE_TAG}"
             }
             steps {
                 withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
@@ -58,7 +58,7 @@ pipeline {
                         git config user.name "${GIT_USER_NAME}"
 
                         echo  ${BUILD_NUMBER}
-                        
+
                         # Optional: Ensure latest changes
                         git pull origin main
 
