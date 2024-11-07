@@ -60,12 +60,12 @@ pipeline {
                         git pull origin main
 
                         # Update the deployment file
-                        sed -i "s|image: rafin1998/rafin-blog-site:[^ ]*|image: rafin1998/rafin-blog-site:${BUILD_NUMBER}-frontend|g" frontend-depl.yaml
+                        sed -i "s|image: rafin1998/rafin-blog-site:[^ ]*|image: rafin1998/rafin-blog-site:${params.IMAGE_TAG}-frontend|g" frontend-depl.yaml
 
 
                         # Add and commit changes
                         git add frontend-depl.yaml
-                        git commit -m "Update deployment image to version ${BUILD_NUMBER} [Jenkins build ${BUILD_NUMBER}]"
+                        git commit -m "Update deployment image to version ${params.IMAGE_TAG} [Jenkins build ${params.IMAGE_TAG}]"
 
                         # Push changes back to the repository
                         git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}.git HEAD:main
