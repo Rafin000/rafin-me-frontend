@@ -67,7 +67,7 @@ pipeline {
 
 
                         # Add and commit changes
-                        git add frontend-depl.yaml
+                        git add k8s/frontend-depl.yaml
                         git commit -m "Update deployment image to version ${BUILD_NUMBER} [Jenkins build ${BUILD_NUMBER}]"
 
                         # Push changes back to the repository
