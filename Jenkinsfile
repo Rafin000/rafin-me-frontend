@@ -4,6 +4,7 @@ pipeline {
     environment {
         DOCKER_HUB_USERNAME = "rafin1998"
         DOCKER_HUB_REPO = "rafin-blog-site"
+        DOCKER_IMAGE_REPO = "${DOCKER_HUB_USERNAME}/${DOCKER_HUB_REPO}"
     }
 
     stages {
