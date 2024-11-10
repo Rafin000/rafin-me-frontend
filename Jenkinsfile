@@ -2,10 +2,21 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "${params.DOCKER_USERNAME}/${params.REPO_NAME}:${params.IMAGE_TAG}-frontend"
+        DOCKER_HUB_USERNAME = "rafin1998"
+        DOCKER_HUB_REPO = "rafin-blog-site"
     }
 
     stages {
+        stage('Calculate New Tag') {
+            steps {
+                script {
+                    env.IMAGE_TAG = sh(script: "./version_increment.sh ${DOCKER_IMAGE_REPO}", returnStdout: true).trim()
+                    env.DOCKER_IMAGE = "${DOCKER_HUB_USERNAME}/${DOCKER_HUB_REPO}:${IMAGE_TAG}-frontend"
+                    echo "New Docker image tag: ${env.IMAGE_TAG}"
+                    echo "New Docker image: ${env.DOCKER_IMAGE}"
+                }
+            }
+        }
         stage('Checkout SCM') {
             steps {
                 script {
