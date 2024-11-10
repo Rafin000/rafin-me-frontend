@@ -63,7 +63,7 @@ pipeline {
                         git pull origin main
 
                         # Update the deployment file
-                        sed -i "s|image: rafin1998/rafin-blog-site:[^ ]*|image: rafin1998/rafin-blog-site:${BUILD_NUMBER}-frontend|g" frontend-depl.yaml
+                        sed -i "s|image: rafin1998/rafin-blog-site:[^ ]*|image: rafin1998/rafin-blog-site:${BUILD_NUMBER}-frontend|g" k8s/frontend-depl.yaml
 
 
                         # Add and commit changes
