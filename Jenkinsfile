@@ -24,7 +24,7 @@ pipeline {
 
                         content_decoded=\$(echo "\$file_content" | jq -r '.content' | base64 -d)
 
-                        current_tag=\$(echo "\$content_decoded" | grep -o 'image: [^ ]*' | sed 's/image: //' | grep -o '[0-9]\+\.[0-9]\+-frontend')
+                        current_tag=$(echo "$content_decoded" | grep -o 'image: [^ ]*' | sed 's/image: //' | grep -o '[0-9]\\+[0-9]\\+-frontend')
 
                         if [[ -z "\$current_tag" ]]; then
                             current_tag="0.0-frontend"
