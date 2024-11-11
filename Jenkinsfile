@@ -2,7 +2,9 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "${params.DOCKER_USERNAME}/${params.REPO_NAME}:${params.IMAGE_TAG}-frontend"
+        // DOCKER_IMAGE = "${params.DOCKER_USERNAME}/${params.REPO_NAME}:${params.IMAGE_TAG}-frontend"
+        DOCKER_USERNAME = "${params.DOCKER_USERNAME}"
+        REPO_NAME = "${params.REPO_NAME}"
     }
 
     stages {
@@ -15,50 +17,49 @@ pipeline {
                     // Create the version script without jq dependency
                     writeFile file: 'get_version.sh', text: '''#!/bin/bash
 
-GIT_USER_NAME="Rafin000"
-GIT_REPO_NAME="rafin-me-frontend"
-FILE_PATH="k8s/frontend-depl.yaml"
-GITHUB_TOKEN=$1  
+                                                                GIT_USER_NAME="Rafin000"
+                                                                GIT_REPO_NAME="rafin-me-frontend"
+                                                                FILE_PATH="k8s/frontend-depl.yaml"
+                                                                GITHUB_TOKEN=$1  
 
-# Directly get the raw content using the raw URL
-content_decoded=$(curl -s -H "Authorization: token ${GITHUB_TOKEN}" \
-    "https://raw.githubusercontent.com/${GIT_USER_NAME}/${GIT_REPO_NAME}/main/${FILE_PATH}")
+                                                                # Directly get the raw content using the raw URL
+                                                                content_decoded=$(curl -s -H "Authorization: token ${GITHUB_TOKEN}" \
+                                                                    "https://raw.githubusercontent.com/${GIT_USER_NAME}/${GIT_REPO_NAME}/main/${FILE_PATH}")
 
-current_tag=$(echo "$content_decoded" | grep -o 'image: [^ ]*' | sed 's/image: //' | grep -o '[0-9]\\+\\.[0-9]\\+-frontend')
+                                                                current_tag=$(echo "$content_decoded" | grep -o 'image: [^ ]*' | sed 's/image: //' | grep -o '[0-9]\\+\\.[0-9]\\+-frontend')
 
-if [[ -z "$current_tag" ]]; then
-    current_tag="0.0-frontend"
-fi
+                                                                if [[ -z "$current_tag" ]]; then
+                                                                    current_tag="0.0-frontend"
+                                                                fi
 
-if [[ $current_tag =~ ([0-9]+)\\.([0-9]+)-frontend ]]; then
-    major=${BASH_REMATCH[1]}
-    minor=${BASH_REMATCH[2]}
-else
-    major=0
-    minor=0
-fi
+                                                                if [[ $current_tag =~ ([0-9]+)\\.([0-9]+)-frontend ]]; then
+                                                                    major=${BASH_REMATCH[1]}
+                                                                    minor=${BASH_REMATCH[2]}
+                                                                else
+                                                                    major=0
+                                                                    minor=0
+                                                                fi
 
-if [ "$minor" -ge 9 ]; then
-    major=$((major + 1))
-    minor=0
-else
-    minor=$((minor + 1))
-fi
+                                                                if [ "$minor" -ge 9 ]; then
+                                                                    major=$((major + 1))
+                                                                    minor=0
+                                                                else
+                                                                    minor=$((minor + 1))
+                                                                fi
 
-new_tag="${major}.${minor}"
-echo "$new_tag"
-'''
+                                                                new_tag="${major}.${minor}"
+                                                                echo "$new_tag"
+                                                                '''
                     
-                    // Make the script executable
                     sh 'chmod +x get_version.sh'
-                    
-                    // Run the script with GitHub token and store the output
+        
                     withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
-                        env.NEW_VERSION = sh(script: './get_version.sh ${GITHUB_TOKEN}', returnStdout: true).trim()
+                        env.IMAGE_TAG = sh(script: './get_version.sh ${GITHUB_TOKEN}', returnStdout: true).trim()
                     }
+                    env.DOCKER_IMAGE = "${env.DOCKER_USERNAME}/${env.REPO_NAME}:${env.NEW_VERSION}-frontend"
                     
-                    // Print the new version
-                    echo "New version: ${env.NEW_VERSION}"
+                    echo "New version: ${env.IMAGE_TAG}"
+                    echo "Docker image: ${env.DOCKER_IMAGE}"
                 }
             }
         }
@@ -91,7 +92,7 @@ echo "$new_tag"
                 GIT_REPO_NAME = "rafin-me-frontend"
                 GIT_USER_NAME = "Rafin000"
                 GIT_USER_EMAIL = "marufulislam00000@gmail.com"
-                BUILD_NUMBER = "${params.IMAGE_TAG}"
+                // BUILD_NUMBER = "${params.IMAGE_TAG}"
             }
             steps {
                 withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
@@ -124,7 +125,7 @@ echo "$new_tag"
 
                         # Add and commit changes
                         git add k8s/frontend-depl.yaml
-                        git commit -m "Update deployment image to version ${BUILD_NUMBER} [Jenkins build ${BUILD_NUMBER}]"
+                        git commit -m "Update deployment image to version ${IMAGE_TAG} [Jenkins build ${IMAGE_TAG}]"
 
                         # Push changes back to the repository
                         git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}.git HEAD:main
