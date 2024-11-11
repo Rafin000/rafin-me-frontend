@@ -2,10 +2,20 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "${params.DOCKER_USERNAME}/${params.REPO_NAME}:${params.IMAGE_TAG}-frontend"
+        DOCKER_IMAGE = "${params.DOCKER_USERNAME}/${params.REPO_NAME}:${IMAGE_TAG}-frontend"
     }
 
     stages {
+        stage('Determine Image Tag') {
+            steps {
+                script {
+                    sh 'chmod +x version_increment.sh'
+                    def newTag = sh(script: './version_increment.sh', returnStdout: true).trim()
+                    env.IMAGE_TAG = newTag  
+                    env.DOCKER_IMAGE = "${params.DOCKER_USERNAME}/${params.REPO_NAME}:${IMAGE_TAG}-frontend"
+                }
+            }
+        }
         stage('Checkout SCM') {
             steps {
                 script {
