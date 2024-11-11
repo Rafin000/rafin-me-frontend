@@ -56,7 +56,7 @@ pipeline {
                     withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                         env.IMAGE_TAG = sh(script: './get_version.sh ${GITHUB_TOKEN}', returnStdout: true).trim()
                     }
-                    env.DOCKER_IMAGE = "${env.DOCKER_USERNAME}/${env.REPO_NAME}:${env.NEW_VERSION}-frontend"
+                    env.DOCKER_IMAGE = "${env.DOCKER_USERNAME}/${env.REPO_NAME}:${env.IMAGE_TAG}-frontend"
                     
                     echo "New version: ${env.IMAGE_TAG}"
                     echo "Docker image: ${env.DOCKER_IMAGE}"
