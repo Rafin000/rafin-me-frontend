@@ -30,7 +30,7 @@ pipeline {
                             echo "New IMAGE_TAG set: ${env.IMAGE_TAG}"
                             env.DOCKER_IMAGE = "${params.DOCKER_USERNAME}/${params.REPO_NAME}:${env.IMAGE_TAG}-frontend"
                         }
-                    }
+                    // }
                 }
             }
         }
