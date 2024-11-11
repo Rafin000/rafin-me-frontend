@@ -15,7 +15,7 @@ pipeline {
         stage('Get Version Tag') {
             steps {
                 script {
-                    def imageTag = sh(script: 'bash version_increment.sh ${GITHUB_TOKEN}', returnStdout: true).trim()
+                    def imageTag = sh(script: 'sh version_increment.sh ${GITHUB_TOKEN}', returnStdout: true).trim()
 
                     // Set the new tag for the Docker image
                     env.DOCKER_IMAGE = "${params.DOCKER_USERNAME}/${params.REPO_NAME}:${imageTag}-frontend"

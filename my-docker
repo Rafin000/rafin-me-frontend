@@ -1,4 +1,3 @@
-# Use an official base image
 FROM ubuntu:20.04
 
 # Install dependencies
@@ -15,5 +14,5 @@ RUN apt-get update && \
 # Set the working directory
 WORKDIR /workspace
 
-# Entry point to run commands
-ENTRYPOINT ["bash"]
+# Default command to run when the container starts
+CMD ["bash"]
