@@ -10,6 +10,7 @@ pipeline {
         stage('Get Version Tag') {
             steps {
                 script {
+                    sh 'apt-get update && apt-get install -y jq'
                     // Run version_increment.sh to get the new version tag
                     def imageTag = sh(script: 'bash version_increment.sh ${GITHUB_TOKEN}', returnStdout: true).trim()
 
