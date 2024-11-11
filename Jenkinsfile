@@ -15,7 +15,7 @@ pipeline {
                     def imageTag = sh(script: 'bash version_increment.sh ${GITHUB_TOKEN}', returnStdout: true).trim()
 
                     // Set the new tag for the Docker image
-                    env.DOCKER_IMAGE = "${params.DOCKER_USERNAME}/${GIT_REPO_NAME}:${imageTag}-frontend"
+                    env.DOCKER_IMAGE = "${params.DOCKER_USERNAME}/${params.REPO_NAME}:${imageTag}-frontend"
                     echo "New Docker image tag: ${env.DOCKER_IMAGE}"
                 }
             }
