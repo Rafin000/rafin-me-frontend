@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker { 
+            image 'rafin1998/rafin-blog-site-frontend-docker-agent:latest' 
+            args '-v /var/run/docker.sock:/var/run/docker.sock' 
+        }
+    }
 
     environment {
         // DOCKER_IMAGE = "${params.DOCKER_USERNAME}/${params.REPO_NAME}:${params.IMAGE_TAG}-frontend"
@@ -10,13 +15,6 @@ pipeline {
         stage('Get Version Tag') {
             steps {
                 script {
-                    def isJqInstalled = sh(script: 'which jq', returnStatus: true) == 0
-                    if (!isJqInstalled) {
-                        echo 'Installing jq...'
-                        // Run with sudo if available
-                        sh 'sudo apt-get update && sudo apt-get install -y jq'
-                    }
-                    
                     def imageTag = sh(script: 'bash version_increment.sh ${GITHUB_TOKEN}', returnStdout: true).trim()
 
                     // Set the new tag for the Docker image

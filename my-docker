@@ -1,0 +1,19 @@
+# Use an official base image
+FROM ubuntu:20.04
+
+# Install dependencies
+RUN apt-get update && \
+    apt-get install -y \
+    curl \
+    jq \
+    sudo \
+    docker.io \
+    git \
+    bash \
+    && apt-get clean
+
+# Set the working directory
+WORKDIR /workspace
+
+# Entry point to run commands
+ENTRYPOINT ["bash"]
