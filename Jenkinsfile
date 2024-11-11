@@ -10,8 +10,13 @@ pipeline {
         stage('Get Version Tag') {
             steps {
                 script {
-                    sh 'apt-get update && apt-get install -y jq'
-                    // Run version_increment.sh to get the new version tag
+                    def isJqInstalled = sh(script: 'which jq', returnStatus: true) == 0
+                    if (!isJqInstalled) {
+                        echo 'Installing jq...'
+                        // Run with sudo if available
+                        sh 'sudo apt-get update && sudo apt-get install -y jq'
+                    }
+                    
                     def imageTag = sh(script: 'bash version_increment.sh ${GITHUB_TOKEN}', returnStdout: true).trim()
 
                     // Set the new tag for the Docker image
