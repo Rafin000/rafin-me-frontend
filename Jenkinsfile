@@ -16,7 +16,7 @@ pipeline {
                         GIT_USER_NAME="Rafin000"
                         GIT_REPO_NAME="rafin-me-frontend"
                         FILE_PATH="k8s/frontend-depl.yaml"
-                        export GITHUB_TOKEN="${githubToken}"  # Corrected syntax for passing token
+                        export GITHUB_TOKEN="\${githubToken}"  # Corrected syntax for passing token
 
                         file_content=\$(curl -s -H "Authorization: token \${GITHUB_TOKEN}" \
                             "https://api.github.com/repos/\${GIT_USER_NAME}/\${GIT_REPO_NAME}/contents/\${FILE_PATH}")
