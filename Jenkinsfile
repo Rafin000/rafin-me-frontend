@@ -1,9 +1,9 @@
 pipeline {
     agent any
 
-    // environment {
-    //     DOCKER_IMAGE = "${params.DOCKER_USERNAME}/${params.REPO_NAME}:${IMAGE_TAG}-frontend"
-    // }
+    environment {
+        DOCKER_IMAGE = ""
+    }
 
     stages {
         stage('Determine Image Tag') {
@@ -37,7 +37,6 @@ pipeline {
                 }
             }
         }
-        
         stage('Checkout SCM') {
             steps {
                 script {

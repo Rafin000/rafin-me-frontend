@@ -32,4 +32,4 @@ else
 fi
 
 new_tag="${major}.${minor}"
-echo "New tag: $new_tag"
+echo "$new_tag"
