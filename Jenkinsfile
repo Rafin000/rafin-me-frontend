@@ -2,9 +2,8 @@ pipeline {
     agent any
 
     environment {
-        // DOCKER_IMAGE = "${params.DOCKER_USERNAME}/${params.REPO_NAME}:${params.IMAGE_TAG}-frontend"
-        DOCKER_USERNAME = "${params.DOCKER_USERNAME}"
-        REPO_NAME = "${params.REPO_NAME}"
+        DOCKER_USERNAME = "rafin1998"
+        REPO_NAME = "rafin-blog-site"
     }
 
     stages {
@@ -14,7 +13,6 @@ pipeline {
                     // Checkout the repository
                     git branch: 'main', url: 'https://github.com/Rafin000/rafin-me-frontend.git'
                     
-                    // Create the version script without jq dependency
                     writeFile file: 'get_version.sh', text: '''#!/bin/bash
 
                                                                 GIT_USER_NAME="Rafin000"
