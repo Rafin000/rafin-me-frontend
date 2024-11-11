@@ -10,14 +10,13 @@ pipeline {
         stage('Fetch Current Tag and Generate New Tag') {
             steps {
                 script {
-
                     def githubToken = credentials('github')
                     def newTag = sh(script: """
                         #!/bin/bash
                         GIT_USER_NAME="Rafin000"
                         GIT_REPO_NAME="rafin-me-frontend"
                         FILE_PATH="k8s/frontend-depl.yaml"
-                        env.GITHUB_TOKEN="${githubToken}"  
+                        export GITHUB_TOKEN="${githubToken}"  # Use export for proper environment variable handling
 
                         file_content=\$(curl -s -H "Authorization: token \${GITHUB_TOKEN}" \
                             "https://api.github.com/repos/\${GIT_USER_NAME}/\${GIT_REPO_NAME}/contents/\${FILE_PATH}")
