@@ -92,7 +92,8 @@ pipeline {
                         git config user.name "${GIT_USER_NAME}"
                         git config user.email "${GIT_USER_EMAIL}"
 
-                        git pull origin main --rebase
+                        git fetch origin
+                        git reset --hard origin/main
 
                         sed -i "s|image: ${DOCKER_USERNAME}/${REPO_NAME}:[^ ]*|image: ${DOCKER_IMAGE}|g" k8s-frontend/frontend-depl.yaml
 
