@@ -8,7 +8,7 @@ RUN yarn install
 COPY . ./
 ENV GENERATE_SOURCEMAP=false
 RUN yarn build
-
+# Huddai
 # Stage 2 - the production environment
 FROM nginx:1.21.0-alpine
 COPY prod.default.conf /etc/nginx/conf.d/default.conf
