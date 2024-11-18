@@ -89,17 +89,13 @@ pipeline {
 
                         cd ${GIT_REPO_NAME}
 
-                        # Configure Git
                         git config user.name "${GIT_USER_NAME}"
                         git config user.email "${GIT_USER_EMAIL}"
 
-                        # Pull latest changes to avoid conflicts
-                        git pull origin main
+                        git pull origin main --rebase
 
-                        # Update the deployment file
                         sed -i "s|image: ${DOCKER_USERNAME}/${REPO_NAME}:[^ ]*|image: ${DOCKER_IMAGE}|g" k8s-frontend/frontend-depl.yaml
 
-                        # Commit and push the changes
                         git add k8s-frontend/frontend-depl.yaml
                         git commit -m "Update frontend deployment to version ${IMAGE_TAG} [Jenkins build]"
                         git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_DEPLOYMENT_REPO_NAME}.git HEAD:main
