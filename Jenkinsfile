@@ -87,14 +87,11 @@ pipeline {
                         [ -d "${GIT_DEPLOYMENT_REPO_NAME}" ] && rm -rf ${GIT_DEPLOYMENT_REPO_NAME}
                         git clone https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_DEPLOYMENT_REPO_NAME}.git
 
-                        cd ${GIT_REPO_NAME}
+                        cd ${GIT_DEPLOYMENT_REPO_NAME}
 
                         git config user.name "${GIT_USER_NAME}"
                         git config user.email "${GIT_USER_EMAIL}"
-
-                        git fetch origin
-                        git reset --hard origin/main
-
+                        
                         sed -i "s|image: ${DOCKER_USERNAME}/${REPO_NAME}:[^ ]*|image: ${DOCKER_IMAGE}|g" k8s-frontend/frontend-depl.yaml
 
                         git add k8s-frontend/frontend-depl.yaml
