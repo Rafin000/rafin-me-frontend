@@ -3,9 +3,12 @@ import './index.css';
 
 const HomeHeader = ({full_name, designation, profile_picture_link, cv_link}) => {
   const handleDownload = () => {
+    if (!cv_link) return;
     const link = document.createElement('a');
-    link.href = `${cv_link}`; 
-    link.download = 'https://s3.brilliant.com.bd/rafin_storage/cv.pdf';
+    link.href = cv_link;
+    link.download = 'cv.pdf';
+    link.target = '_blank';
+    link.rel = 'noopener';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

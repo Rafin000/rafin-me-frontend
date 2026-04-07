@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
 import './index.css';
+import { URLs } from '../../../config';
 
 const HomeAbout = ({about}) => {
   return (
     <div className="home-about">
       <div className='home-about-left'>
-        <img src="https://s3.brilliant.com.bd/rafin_storage/header.png" alt="Rafin" />
+        <img src={URLs.header} alt="Rafin" />
       </div>
       <div className='home-about-right'>
         <h1 className='home-about-right-header'>About Me</h1>
