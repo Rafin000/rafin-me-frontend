@@ -4,7 +4,7 @@ import { URLs } from '../../../config';
 
 const HomeAbout = ({about}) => {
   return (
-    <div className="home-about">
+    <div id="about" className="home-about">
       <div className='home-about-left'>
         <img src={URLs.header} alt="Rafin" />
       </div>

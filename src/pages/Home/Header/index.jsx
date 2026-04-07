@@ -15,7 +15,7 @@ const HomeHeader = ({full_name, designation, profile_picture_link, cv_link}) => 
   };
 
   return (
-    <header className="home-header">
+    <header id="home" className="home-header">
       <div className='home-header-left'>
         <h2>Hi,&#128075; I&apos;m</h2>
         <h1>{full_name ? full_name : ''}</h1>

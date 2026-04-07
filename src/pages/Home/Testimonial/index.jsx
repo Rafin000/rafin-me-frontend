@@ -9,7 +9,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 
 const Testimonial = ({testimonials}) => {
   return (
-    <section className="testimonial">
+    <section id="testimonials" className="testimonial">
       <h1>Testimonials</h1>
       <Swiper
         slidesPerView={1}

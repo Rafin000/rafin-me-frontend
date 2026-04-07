@@ -5,7 +5,7 @@ import './index.css';
 
 const Timeline = ({educationData, experienceData}) => {
   return (
-    <div className="timeline">
+    <div id="timeline" className="timeline">
       <h1>Timeline</h1>
       <div className='timeline-body'>
         <div className="timeline-left">
