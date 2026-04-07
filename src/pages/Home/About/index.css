@@ -9,7 +9,7 @@
 }
 
 .home-about-right-header {
-  margin: 0;
+  margin: 0 0 1.25rem 0;
   color: #d4b059;
   font-weight: bolder;
   font-size: 2.5rem; /* Default font size */
@@ -25,8 +25,49 @@
 
 .home-about-right-content {
   font-family: 'Courier New', Courier, monospace;
-  font-size: 1rem; 
+  font-size: 1rem;
   text-align: justify;
+}
+
+/* MarkdownPreview override: transparent bg so it blends with the page */
+.home-about-right-content.markdown-preview,
+.home-about-right-content.wmde-markdown {
+  background: transparent !important;
+  color: rgba(255, 255, 255, 0.87);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.home-about-right-content p {
+  margin: 0 0 1em 0;
+}
+
+.home-about-right-content p:last-child {
+  margin-bottom: 0;
+}
+
+.home-about-right-content a {
+  color: #d4b059;
+}
+
+.home-about-right-content strong,
+.home-about-right-content b {
+  color: #eaeaea;
+}
+
+.home-about-right-content ul,
+.home-about-right-content ol {
+  padding-left: 1.4em;
+  margin: 0 0 1em 0;
+}
+
+.home-about-right-content h1,
+.home-about-right-content h2,
+.home-about-right-content h3 {
+  color: #d4b059;
+  margin: 1em 0 0.5em;
+  border-bottom: none;
 }
 
 /* Media queries for responsiveness */

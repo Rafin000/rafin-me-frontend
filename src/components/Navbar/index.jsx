@@ -1,64 +1,36 @@
-import { HashLink } from 'react-router-hash-link';
 import { Link } from 'react-router-dom';
 import './index.css';
 import { URLs } from '../../config';
-
-// Smooth-scroll with an offset so the sticky nav doesn't cover the heading.
-const scrollWithOffset = (el) => {
-  const navEl = document.querySelector('.navbar');
-  const navHeight = navEl ? navEl.offsetHeight : 80;
-  const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
-  window.scrollTo({ top: yCoordinate - navHeight - 12, behavior: 'smooth' });
-};
+import { isBlogSubdomain, MAIN_SITE, BLOG_SITE } from '../../utils/hostname';
 
 function Navbar() {
+  const onBlog = isBlogSubdomain();
+
+  // Logo + Home always go to the main site.
+  const homeLink = onBlog
+    ? <a href={MAIN_SITE} className="nav-link">Home</a>
+    : <Link to="/" className="nav-link">Home</Link>;
+
+  // Blog link points to the blog subdomain (or stays local when already there).
+  const blogLink = onBlog
+    ? <Link to="/" className="nav-link">Blog</Link>
+    : <a href={BLOG_SITE} className="nav-link">Blog</a>;
+
+  const contactLink = onBlog
+    ? <a href={`${MAIN_SITE}/contact`} className="nav-link">Contact</a>
+    : <Link to="/contact" className="nav-link">Contact</Link>;
+
+  const logoLink = onBlog
+    ? <a href={MAIN_SITE}><img src={URLs.logo} alt="Logo" /></a>
+    : <Link to="/"><img src={URLs.logo} alt="Logo" /></Link>;
+
   return (
     <nav className="navbar">
-      <div className="navbar-logo">
-        <Link to="/">
-          <img src={URLs.logo} alt="Logo" />
-        </Link>
-      </div>
-
-      <ul className="nav-list nav-list-center">
-        <li className="nav-item">
-          <HashLink smooth to="/#home" scroll={scrollWithOffset} className="nav-link">
-            Home
-          </HashLink>
-        </li>
-        <li className="nav-item">
-          <HashLink smooth to="/#about" scroll={scrollWithOffset} className="nav-link">
-            About
-          </HashLink>
-        </li>
-        <li className="nav-item">
-          <HashLink smooth to="/#timeline" scroll={scrollWithOffset} className="nav-link">
-            Timeline
-          </HashLink>
-        </li>
-        <li className="nav-item">
-          <HashLink smooth to="/#skills" scroll={scrollWithOffset} className="nav-link">
-            Skills
-          </HashLink>
-        </li>
-        <li className="nav-item">
-          <HashLink smooth to="/#testimonials" scroll={scrollWithOffset} className="nav-link">
-            Testimonials
-          </HashLink>
-        </li>
-      </ul>
-
-      <ul className="nav-list nav-list-right">
-        <li className="nav-item">
-          <Link to="/blogs" className="nav-link">
-            Blog
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/contact" className="nav-link">
-            Contact
-          </Link>
-        </li>
+      <div className="navbar-logo">{logoLink}</div>
+      <ul className="nav-list">
+        <li className="nav-item">{homeLink}</li>
+        <li className="nav-item">{blogLink}</li>
+        <li className="nav-item">{contactLink}</li>
       </ul>
     </nav>
   );

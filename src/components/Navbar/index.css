@@ -1,10 +1,9 @@
 .navbar {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 1rem;
   padding-inline: 10%;
-  padding-block: 0.75rem;
+  padding-block: 0.4rem;
   background-color: #06080b;
   position: sticky;
   top: 0;
@@ -18,15 +17,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 1.75rem;
-}
-
-.nav-list-center {
-  justify-content: center;
-}
-
-.nav-list-right {
-  justify-content: flex-end;
+  gap: 2rem;
 }
 
 .nav-link {
@@ -40,7 +31,7 @@
 }
 
 .navbar-logo img {
-  width: 80px;
+  width: 64px;
   height: auto;
   display: block;
 }
@@ -49,42 +40,31 @@
 @media (max-width: 1024px) {
   .navbar {
     padding-inline: 5%;
-    gap: 0.75rem;
   }
 
   .nav-list {
     font-size: 1rem;
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
   .navbar-logo img {
-    width: 64px;
+    width: 56px;
   }
 }
 
-/* Mobile — collapse into a single centered column with logo on top */
+/* Mobile */
 @media (max-width: 768px) {
   .navbar {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
-    justify-items: center;
-    padding-block: 1rem;
-    gap: 0.5rem;
+    padding-block: 0.5rem;
   }
 
   .nav-list {
     font-size: 0.95rem;
-    gap: 0.9rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .nav-list-right {
-    justify-content: center;
+    gap: 1rem;
   }
 
   .navbar-logo img {
-    width: 60px;
+    width: 48px;
   }
 }
 
@@ -95,6 +75,6 @@
   }
 
   .navbar-logo img {
-    width: 52px;
+    width: 42px;
   }
 }
