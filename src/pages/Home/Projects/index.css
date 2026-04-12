@@ -125,3 +125,19 @@
     grid-template-columns: 1fr;
   }
 }
+.project-year {
+  display: block;
+  font-size: 0.85rem;
+  color: #8b949e;
+  margin-top: 0.25rem;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.project-link-muted {
+  color: #6e7681 !important;
+  cursor: default;
+}
+
+.project-link-muted:hover {
+  color: #6e7681 !important;
+}

@@ -5,6 +5,8 @@ import Blog from './pages/Blog';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
 import BlogDetails from './pages/Blog/BlogCard/BlogDetails';
+import ProjectsList from './pages/Projects';
+import ProjectDetail from './pages/Projects/ProjectDetail';
 import { isBlogSubdomain } from './utils/hostname';
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
             <Route path="/blogs" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/blogs/:postId" element={<BlogDetails />} />
+            <Route path="/projects" element={<ProjectsList />} />
+            <Route path="/projects/:projectId" element={<ProjectDetail />} />
           </Routes>
         )}
       </Layout>

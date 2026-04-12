@@ -11,6 +11,7 @@ const ProjectCard = ({ project }) => {
       )}
       <div className="project-body">
         <h3 className="project-title">{project.title}</h3>
+        {project.year && <span className="project-year">{project.year}</span>}
         {project.description && (
           <p className="project-description">{project.description}</p>
         )}
@@ -22,7 +23,7 @@ const ProjectCard = ({ project }) => {
           </div>
         )}
         <div className="project-links">
-          {project.github_link && (
+          {project.github_link ? (
             <a
               href={project.github_link}
               target="_blank"
@@ -33,6 +34,11 @@ const ProjectCard = ({ project }) => {
               <i className="fa-brands fa-github"></i>
               <span>GitHub</span>
             </a>
+          ) : (
+            <span className="project-link project-link-muted" title="Private repository">
+              <i className="fa-solid fa-lock"></i>
+              <span>Private Repo</span>
+            </span>
           )}
           {project.live_link && (
             <a
@@ -40,10 +46,10 @@ const ProjectCard = ({ project }) => {
               target="_blank"
               rel="noopener noreferrer"
               className="project-link"
-              title="View Live Demo"
+              title="Watch demo video"
             >
-              <i className="fa-solid fa-arrow-up-right-from-square"></i>
-              <span>Live Demo</span>
+              <i className="fa-solid fa-video"></i>
+              <span>Demo Video</span>
             </a>
           )}
         </div>

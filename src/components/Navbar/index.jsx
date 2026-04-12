@@ -6,12 +6,14 @@ import { isBlogSubdomain, MAIN_SITE, BLOG_SITE } from '../../utils/hostname';
 function Navbar() {
   const onBlog = isBlogSubdomain();
 
-  // Logo + Home always go to the main site.
   const homeLink = onBlog
     ? <a href={MAIN_SITE} className="nav-link">Home</a>
     : <Link to="/" className="nav-link">Home</Link>;
 
-  // Blog link points to the blog subdomain (or stays local when already there).
+  const projectsLink = onBlog
+    ? <a href={`${MAIN_SITE}/projects`} className="nav-link">Projects</a>
+    : <Link to="/projects" className="nav-link">Projects</Link>;
+
   const blogLink = onBlog
     ? <Link to="/" className="nav-link">Blog</Link>
     : <a href={BLOG_SITE} className="nav-link">Blog</a>;
@@ -29,6 +31,7 @@ function Navbar() {
       <div className="navbar-logo">{logoLink}</div>
       <ul className="nav-list">
         <li className="nav-item">{homeLink}</li>
+        <li className="nav-item">{projectsLink}</li>
         <li className="nav-item">{blogLink}</li>
         <li className="nav-item">{contactLink}</li>
       </ul>

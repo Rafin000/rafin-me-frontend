@@ -4,7 +4,6 @@ import Timeline from './Timeline';
 import HomeHeader from './Header';
 import HomeAbout from './About';
 import Testimonial from './Testimonial';
-import Projects from './Projects';
 import { useEffect, useState } from 'react';
 import { API_BASE_URL } from '../../config';
 import ScrollToTop from '../../components/ScrollToTop';
@@ -35,7 +34,7 @@ function Home() {
 
       fetchData();
     }, []);
-    
+
       if (loading) {
         return (
             <div className="spinner-container">
@@ -43,13 +42,13 @@ function Home() {
             </div>
         );
     }
-    
+
       if (error) {
         return <div>Error: {error.message}</div>;
       }
 
     return (
-        <div id="projects" className="home-page">
+        <div className="home-page">
             <HomeHeader
               full_name={userData.full_name}
               designation={userData.designation}
@@ -65,9 +64,6 @@ function Home() {
             />
             <SkillsSection
               skills={userData.skills}
-            />
-            <Projects
-              projects={userData.projects}
             />
             <Testimonial
               testimonials={userData.testimonials}
