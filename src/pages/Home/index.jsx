@@ -4,6 +4,7 @@ import Timeline from './Timeline';
 import HomeHeader from './Header';
 import HomeAbout from './About';
 import Testimonial from './Testimonial';
+import Projects from './Projects';
 import { useEffect, useState } from 'react';
 import { API_BASE_URL } from '../../config';
 import ScrollToTop from '../../components/ScrollToTop';
@@ -48,24 +49,27 @@ function Home() {
       }
 
     return (
-        <div className="home-page">
-            <HomeHeader 
+        <div id="projects" className="home-page">
+            <HomeHeader
               full_name={userData.full_name}
               designation={userData.designation}
               profile_picture_link={userData.profile_picture_link}
               cv_link={userData.cv_link}
             />
-            <HomeAbout 
+            <HomeAbout
               about={userData.about}
             />
             <Timeline
               educationData={userData.education}
               experienceData={userData.experiences}
             />
-            <SkillsSection 
+            <SkillsSection
               skills={userData.skills}
             />
-            <Testimonial 
+            <Projects
+              projects={userData.projects}
+            />
+            <Testimonial
               testimonials={userData.testimonials}
             />
             <ScrollToTop />
