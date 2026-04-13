@@ -30,24 +30,14 @@ const ProjectDetail = () => {
         <i className="fa-solid fa-arrow-left"></i> Back to Projects
       </Link>
 
-      {project.thumbnail_url && (
-        <div className="project-detail-thumbnail">
-          <img src={project.thumbnail_url} alt={project.title} />
-        </div>
-      )}
-
       <h1 className="project-detail-title">{project.title}</h1>
       {project.year && <span className="project-detail-year">{project.year}</span>}
 
       <div className="project-detail-links">
-        {project.github_link ? (
+        {project.github_link && (
           <a href={project.github_link} target="_blank" rel="noopener noreferrer" className="detail-link">
             <i className="fa-brands fa-github"></i> View on GitHub
           </a>
-        ) : (
-          <span className="detail-link detail-link-muted">
-            <i className="fa-solid fa-lock"></i> Private Repository
-          </span>
         )}
         {project.live_link && (
           <a href={project.live_link} target="_blank" rel="noopener noreferrer" className="detail-link">
@@ -61,6 +51,17 @@ const ProjectDetail = () => {
           {project.tech_stack.map((tech, index) => (
             <span key={index} className="tech-pill">{tech}</span>
           ))}
+        </div>
+      )}
+
+      {project.contributions && project.contributions.length > 0 && (
+        <div className="project-detail-contributions">
+          <h3>Key Contributions</h3>
+          <ul>
+            {project.contributions.map((c, i) => (
+              <li key={i}>{c}</li>
+            ))}
+          </ul>
         </div>
       )}
 

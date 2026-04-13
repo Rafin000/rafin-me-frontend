@@ -132,3 +132,24 @@
     font-size: 1.5rem;
   }
 }
+
+.project-detail-contributions {
+  margin-bottom: 1.5rem;
+}
+
+.project-detail-contributions h3 {
+  color: #d4b059;
+  font-size: 1.2rem;
+  margin: 0 0 0.75rem;
+}
+
+.project-detail-contributions ul {
+  padding-left: 1.4rem;
+  margin: 0;
+  color: #c9d1d9;
+  line-height: 1.8;
+}
+
+.project-detail-contributions li {
+  margin-bottom: 0.4rem;
+}
