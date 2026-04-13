@@ -153,3 +153,16 @@
 .project-detail-contributions li {
   margin-bottom: 0.4rem;
 }
+
+.project-detail-video {
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+}
+
+.project-detail-video video {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+}

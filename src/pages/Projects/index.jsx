@@ -7,6 +7,11 @@ const ProjectCard = ({ project }) => {
   return (
     <Link to={`/projects/${project.id}`} className="project-card-link">
       <div className="project-card">
+        {project.thumbnail_url && (
+          <div className="project-thumbnail">
+            <img src={project.thumbnail_url} alt={project.title} />
+          </div>
+        )}
         <div className="project-body">
           <h3 className="project-title">{project.title}</h3>
           {project.year && <span className="project-year">{project.year}</span>}
