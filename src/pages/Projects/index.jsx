@@ -15,6 +15,9 @@ const ProjectCard = ({ project }) => {
         <div className="project-body">
           <h3 className="project-title">{project.title}</h3>
           {project.year && <span className="project-year">{project.year}</span>}
+          {project.description && (
+            <p className="project-description">{project.description}</p>
+          )}
           {project.contributions && project.contributions.length > 0 && (
             <ul className="project-contributions">
               {project.contributions.slice(0, 3).map((c, i) => (
