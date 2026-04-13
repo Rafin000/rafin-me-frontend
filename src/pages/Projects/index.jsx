@@ -3,15 +3,54 @@ import { Link } from 'react-router-dom';
 import { API_BASE_URL } from '../../config';
 import './index.css';
 
+const VIDEO_RE = /\.(mp4|webm)(\?.*)?$/i;
+
 const ProjectCard = ({ project }) => {
+  const [playing, setPlaying] = useState(false);
+  const hasVideo = project.live_link && VIDEO_RE.test(project.live_link);
+
+  const handlePlayClick = (e) => {
+    e.preventDefault();  // stop the <Link> from navigating
+    e.stopPropagation();
+    setPlaying(true);
+  };
+
   return (
     <Link to={`/projects/${project.id}`} className="project-card-link">
       <div className="project-card">
-        {project.thumbnail_url && (
-          <div className="project-thumbnail">
-            <img src={project.thumbnail_url} alt={project.title} />
+        {/* Thumbnail / Video area */}
+        {playing && hasVideo ? (
+          <div className="project-video-player" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
+            <video autoPlay controls width="100%">
+              <source
+                src={project.live_link}
+                type={project.live_link.endsWith('.webm') ? 'video/webm' : 'video/mp4'}
+              />
+            </video>
           </div>
-        )}
+        ) : project.thumbnail_url ? (
+          <div
+            className={`project-thumbnail ${hasVideo ? 'project-thumbnail-playable' : ''}`}
+            onClick={hasVideo ? handlePlayClick : undefined}
+          >
+            <img src={project.thumbnail_url} alt={project.title} />
+            {hasVideo && (
+              <div className="play-overlay">
+                <i className="fa-solid fa-play"></i>
+              </div>
+            )}
+          </div>
+        ) : hasVideo ? (
+          <div
+            className="project-thumbnail project-thumbnail-playable project-thumbnail-no-img"
+            onClick={handlePlayClick}
+          >
+            <div className="play-overlay">
+              <i className="fa-solid fa-play"></i>
+            </div>
+          </div>
+        ) : null}
+
         <div className="project-body">
           <h3 className="project-title">{project.title}</h3>
           {project.year && <span className="project-year">{project.year}</span>}

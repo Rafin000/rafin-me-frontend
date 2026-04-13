@@ -159,3 +159,56 @@
   margin-left: -1.2rem;
   margin-top: 0.3rem;
 }
+
+/* Play button overlay on thumbnail */
+.project-thumbnail-playable {
+  position: relative;
+  cursor: pointer;
+}
+
+.play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.project-thumbnail-playable:hover .play-overlay {
+  opacity: 1;
+}
+
+.play-overlay i {
+  font-size: 2.5rem;
+  color: #fff;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+}
+
+.project-thumbnail-no-img {
+  height: 160px;
+  background: #0d1117;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-thumbnail-no-img .play-overlay {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Inline video player on card */
+.project-video-player {
+  width: 100%;
+  background: #000;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+}
+
+.project-video-player video {
+  display: block;
+  width: 100%;
+}
