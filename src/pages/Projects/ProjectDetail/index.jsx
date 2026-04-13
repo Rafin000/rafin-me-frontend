@@ -72,24 +72,13 @@ const ProjectDetail = () => {
       <h1 className="project-detail-title">{project.title}</h1>
       {project.year && <span className="project-detail-year">{project.year}</span>}
 
-      <div className="project-detail-links">
-        {project.github_link && (
-          <a href={project.github_link} target="_blank" rel="noopener noreferrer" className="detail-link">
-            <i className="fa-brands fa-github"></i> View on GitHub
-          </a>
-        )}
-        {project.live_link && !hasVideo && (
-          <a href={project.live_link} target="_blank" rel="noopener noreferrer" className="detail-link">
-            <i className="fa-solid fa-video"></i> Demo Video
-          </a>
-        )}
-      </div>
-
-      {project.tech_stack && project.tech_stack.length > 0 && (
-        <div className="project-detail-tech">
-          {project.tech_stack.map((tech, index) => (
-            <span key={index} className="tech-pill">{tech}</span>
-          ))}
+      {project.description && (
+        <div className="project-detail-description">
+          <MarkdownPreview
+            className="markdown-preview"
+            source={project.description}
+            wrapperElement={{ 'data-color-mode': 'dark' }}
+          />
         </div>
       )}
 
@@ -104,15 +93,26 @@ const ProjectDetail = () => {
         </div>
       )}
 
-      {project.description && (
-        <div className="project-detail-description">
-          <MarkdownPreview
-            className="markdown-preview"
-            source={project.description}
-            wrapperElement={{ 'data-color-mode': 'dark' }}
-          />
+      {project.tech_stack && project.tech_stack.length > 0 && (
+        <div className="project-detail-tech">
+          {project.tech_stack.map((tech, index) => (
+            <span key={index} className="tech-pill">{tech}</span>
+          ))}
         </div>
       )}
+
+      <div className="project-detail-links">
+        {project.github_link && (
+          <a href={project.github_link} target="_blank" rel="noopener noreferrer" className="detail-link">
+            <i className="fa-brands fa-github"></i> View on GitHub
+          </a>
+        )}
+        {project.live_link && !hasVideo && (
+          <a href={project.live_link} target="_blank" rel="noopener noreferrer" className="detail-link">
+            <i className="fa-solid fa-video"></i> Demo Video
+          </a>
+        )}
+      </div>
 
       <ScrollToTop />
     </div>
