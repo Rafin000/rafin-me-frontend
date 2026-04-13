@@ -15,15 +15,8 @@ const ProjectCard = ({ project }) => {
         <div className="project-body">
           <h3 className="project-title">{project.title}</h3>
           {project.year && <span className="project-year">{project.year}</span>}
-          {project.contributions && project.contributions.length > 0 && (
-            <ul className="project-contributions">
-              {project.contributions.slice(0, 3).map((c, i) => (
-                <li key={i}>{c}</li>
-              ))}
-              {project.contributions.length > 3 && (
-                <li className="more-indicator">+{project.contributions.length - 3} more...</li>
-              )}
-            </ul>
+          {project.description && (
+            <p className="project-description">{project.description}</p>
           )}
           {project.tech_stack && project.tech_stack.length > 0 && (
             <div className="project-tech-stack">
@@ -32,20 +25,6 @@ const ProjectCard = ({ project }) => {
               ))}
             </div>
           )}
-          <div className="project-links">
-            {project.github_link && (
-              <span className="project-link">
-                <i className="fa-brands fa-github"></i>
-                <span>GitHub</span>
-              </span>
-            )}
-            {project.live_link && (
-              <span className="project-link">
-                <i className="fa-solid fa-video"></i>
-                <span>Demo Video</span>
-              </span>
-            )}
-          </div>
         </div>
       </div>
     </Link>
