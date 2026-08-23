@@ -212,3 +212,11 @@
   display: block;
   width: 100%;
 }
+
+/* "+N more" counter shown when a card has more tags than it displays.
+   Muted so it reads as a summary rather than another technology. */
+.tech-pill-more {
+  background: transparent;
+  color: #7d8590;
+  border: 1px dashed #30363d;
+}

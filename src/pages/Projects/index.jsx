@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import { API_BASE_URL } from '../../config';
 import './index.css';
 
+// Cards keep to a single row of tags so they stay the same height in the grid.
+// The remainder is summarised as "+N more"; the detail page shows all of them.
+const MAX_VISIBLE_TAGS = 4;
+
 const ProjectCard = ({ project }) => {
   return (
     <Link to={`/projects/${project.id}`} className="project-card-link">
@@ -20,9 +24,14 @@ const ProjectCard = ({ project }) => {
           )}
           {project.tech_stack && project.tech_stack.length > 0 && (
             <div className="project-tech-stack">
-              {project.tech_stack.map((tech, index) => (
+              {project.tech_stack.slice(0, MAX_VISIBLE_TAGS).map((tech, index) => (
                 <span key={index} className="tech-pill">{tech}</span>
               ))}
+              {project.tech_stack.length > MAX_VISIBLE_TAGS && (
+                <span className="tech-pill tech-pill-more">
+                  +{project.tech_stack.length - MAX_VISIBLE_TAGS} more
+                </span>
+              )}
             </div>
           )}
         </div>
