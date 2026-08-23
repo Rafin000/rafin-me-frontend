@@ -1,8 +1,8 @@
 // Base URL for static assets that aren't stored in the DB (logo, header image).
-// Override via Vite env var; default is the production S3 prefix.
+// Override via Vite env var; default is the production GCS prefix.
 const ASSETS_BASE_URL =
   import.meta.env.VITE_ASSETS_BASE_URL ||
-  "https://nexora-uploads.s3.us-east-1.amazonaws.com/rafin-assets";
+  "https://storage.googleapis.com/rafin-portfolio-assets/rafin-assets";
 
 export const URLs = {
   logo: `${ASSETS_BASE_URL}/logo.png`,
